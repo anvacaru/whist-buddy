@@ -1,0 +1,59 @@
+//
+//  GameHost.swift
+//  WhistBuddy
+//
+//  Created by Andrei Vacaru on 16.03.2022.
+//
+
+import SwiftUI
+
+struct GameHost: View {
+    @EnvironmentObject var modelData: ModelData
+    @State private var showingProfile = false
+    @State private var showingInput = false
+    var body: some View {
+        VStack{
+            if modelData.isIntialized {
+                GameSummary()
+                    .environmentObject(modelData)
+            }
+                
+            HStack{
+                if modelData.isIntialized {
+                    Button {
+                        showingInput.toggle()
+                    } label: {
+                        Label("Input", systemImage: "person.crop.circle")
+                    }
+                    .sheet(isPresented: $showingInput) {
+                        InputHost(showingInput: $showingInput)
+                            .environmentObject(modelData)
+
+                        
+                    }
+                    .padding()
+                    Spacer()
+                }
+                                
+                Button {
+                    showingProfile.toggle()
+                } label: {
+                    Label("Game Settings", systemImage: "person.crop.circle")
+                }
+                .sheet(isPresented: $showingProfile) {
+                    ProfileHost()
+                        .environmentObject(modelData)
+                }
+                .padding()
+            }
+
+        }
+    }
+}
+
+struct GameHost_Previews: PreviewProvider {
+    static var previews: some View {
+        GameHost()
+            .environmentObject(ModelData())
+    }
+}

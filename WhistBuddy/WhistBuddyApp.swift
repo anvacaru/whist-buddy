@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct WhistBuddyApp: App {
+    @StateObject private var modelData = ModelData()
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            GameHost()
+                .environmentObject(modelData)
         }
     }
 }
