@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct RoundEntry: View {
+    @EnvironmentObject var modelData: ModelData
+
     var round: Round
     var playerIndex: Int
     var body: some View {
@@ -29,5 +31,6 @@ struct RoundEntry: View {
 struct RoundEntry_Previews: PreviewProvider {
     static var previews: some View {
         RoundEntry(round: Round.default, playerIndex: 0)
+            .environmentObject(ModelData())
     }
 }

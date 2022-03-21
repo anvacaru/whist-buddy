@@ -11,6 +11,7 @@ struct GameHost: View {
     @EnvironmentObject var modelData: ModelData
     @State private var showingProfile = false
     @State private var showingInput = false
+    @State private var editMode:EditMode = .active
     var body: some View {
         VStack{
             if modelData.isIntialized {
@@ -22,14 +23,14 @@ struct GameHost: View {
                 if modelData.isIntialized {
                     Button {
                         showingInput.toggle()
+                        editMode = .active
                     } label: {
                         Label("Input", systemImage: "person.crop.circle")
                     }
                     .sheet(isPresented: $showingInput) {
                         InputHost(showingInput: $showingInput)
                             .environmentObject(modelData)
-
-                        
+                            .environment(\.editMode, $editMode)
                     }
                     .padding()
                     Spacer()

@@ -18,8 +18,8 @@ struct GameEntry: View {
                     .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
                     
                 Divider()
-                ForEach(0..<profile.currentRound, id:\.self) { idx in
-                    RoundEntry(round: rounds[idx], playerIndex: playerIndex)
+                ForEach(1...profile.currentRound + 1, id:\.self) { idx in
+                    RoundEntry(round: rounds[idx - 1], playerIndex: playerIndex)
                         .padding()
                 }
             }
@@ -30,5 +30,6 @@ struct GameEntry: View {
 struct GameEntry_Previews: PreviewProvider {
     static var previews: some View {
         GameEntry(profile: Profile.default, rounds: [Round.default], playerIndex: 0)
+            .environmentObject(ModelData())
     }
 }

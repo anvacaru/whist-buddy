@@ -26,16 +26,10 @@ struct InputHost: View {
                 }
                 Spacer()
                 EditButton()
-
             }
             .padding()
-            HStack{
-                Text(String(modelData.hasBids))
-                Text(String(modelData.hasResults))
-            }.padding()
             
-            if editMode?.wrappedValue == .inactive {
-            } else {
+            if editMode?.wrappedValue == .active {
                 RoundEditor(inputRound: $draftRound)
                     .onAppear() {
                         draftRound = modelData.rounds[modelData.profile.currentRound]
@@ -58,8 +52,8 @@ struct InputHost: View {
                                 }
                             }
                         }
+                        showingInput = false
                     }
-
             }
         }
     }

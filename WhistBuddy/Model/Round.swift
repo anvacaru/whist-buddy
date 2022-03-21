@@ -59,7 +59,7 @@ struct Round: Identifiable {
     }
     
     mutating func computeScore(previousScores: [Int]) -> [Int]{
-        for idx in 0...(bids.count-1) {
+        for idx in 0..<bids.count {
             if bids[idx] == results[idx] {
                 scores[idx] = previousScores[idx] + 5 + bids[idx].rawValue
             } else {
