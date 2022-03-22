@@ -38,7 +38,7 @@ struct ProfileHost: View {
                         modelData.rounds = Round.initGameRounds(playerCount: modelData.profile.playerCount, gameHands: modelData.profile.gameHands)
                         modelData.players = Player.initPlayers(playerNames: modelData.profile.playerNames, playerCount: modelData.profile.playerCount)
                         modelData.profile.currentRound = 0
-                        modelData.isIntialized = true
+                        modelData.gameState = ModelData.GameState.inProgress
                     }
             }
         }

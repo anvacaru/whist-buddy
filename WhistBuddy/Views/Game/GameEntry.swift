@@ -19,8 +19,10 @@ struct GameEntry: View {
                     
                 Divider()
                 ForEach(1...modelData.profile.currentRound + 1, id:\.self) { idx in
-                    RoundEntry(round: modelData.rounds[idx - 1], playerIndex: playerIndex)
-                        .padding()
+                    if (modelData.profile.currentRound < modelData.profile.gameHands.count) {
+                        RoundEntry(round: modelData.rounds[idx - 1], playerIndex: playerIndex)
+                            .padding()
+                    }
                 }
             }
         }

@@ -50,6 +50,9 @@ struct InputHost: View {
                                     modelData.profile.currentRound += 1;
                                     modelData.hasBids = false
                                     modelData.hasResults = false
+                                    if modelData.profile.currentRound == modelData.profile.gameHands.count {
+                                        modelData.gameState = ModelData.GameState.finished
+                                    }
                                 }
                             }
                         }

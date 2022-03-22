@@ -14,13 +14,17 @@ struct GameHost: View {
     @State private var editMode:EditMode = .active
     var body: some View {
         VStack{
-            if modelData.isIntialized {
+            if modelData.gameState == ModelData.GameState.inProgress {
                 GameSummary()
                     .environmentObject(modelData)
             }
-                
+            
+            if modelData.gameState == ModelData.GameState.finished {
+                GameStandings(players: Player.sortPlayers(players: modelData.players), playerCount: modelData.profile.playerCount)
+            }
+
             HStack{
-                if modelData.isIntialized {
+                if modelData.gameState == ModelData.GameState.inProgress {
                     Button {
                         showingInput.toggle()
                         editMode = .active

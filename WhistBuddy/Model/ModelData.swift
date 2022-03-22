@@ -12,10 +12,10 @@ final class ModelData: ObservableObject {
     @Published var profile = Profile.default
     @Published var rounds = [Round.default]
     @Published var players = Player.initPlayers(playerNames: Profile.defaultNames, playerCount: Profile.PlayerCount.six)
-    @Published var isIntialized:Bool = false
     @Published var hasBids: Bool = false
     @Published var hasResults: Bool = false
-        
+    @Published var gameState: GameState = GameState.notInitialized
+
     func updatePlayerScores(round: Round) {
         var roundPoints: Int = 0
         let countStreak: Bool = (round.hand != Hand.one) && profile.prefersBonus
@@ -28,5 +28,13 @@ final class ModelData: ObservableObject {
             }
             players[idx].updateScore(roundPoints: roundPoints, countStreak: countStreak, bonusValue: profile.bonusValue)
         }
+    }
+    
+    enum GameState: Int, CaseIterable, Identifiable {
+        case notInitialized = 0
+        case inProgress = 1
+        case finished = 2
+
+        var id: Int {rawValue}
     }
 }

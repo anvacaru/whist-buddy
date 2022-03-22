@@ -18,8 +18,10 @@ struct GameHead: View {
                     
                 Divider()
                 ForEach(1...profile.currentRound + 1, id:\.self) { idx in
-                    Text(String(profile.gameHands[idx-1].rawValue))
-                        .padding()
+                    if (profile.currentRound < profile.gameHands.count) {
+                        Text(String(profile.gameHands[idx-1].rawValue))
+                            .padding()
+                    }
                 }
             }
         }

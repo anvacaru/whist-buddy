@@ -32,4 +32,17 @@ struct Player: Identifiable {
             score += bonusValue
         }
     }
+
+    static func sortPlayers(players:[Player]) -> [Player] {
+        var standings: [Player] = []
+        standings.append(contentsOf:
+                            players.filter { $0.score == 0 }
+                         )
+        standings.append(contentsOf:
+                            players
+                                .sorted { $0.score >= $1.score }
+                                .filter { $0.score != 0 }
+                         )
+        return standings
+    }
 }
