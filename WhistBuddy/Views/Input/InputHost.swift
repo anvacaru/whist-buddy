@@ -44,7 +44,8 @@ struct InputHost: View {
                             if !modelData.hasResults {
                                 if draftRound.validateResults() {
                                     modelData.hasResults = true
-                                    modelData.scores = draftRound.computeScore(previousScores: modelData.scores)
+                                    modelData.updatePlayerScores(round: draftRound)
+                                    draftRound.setScores(players: modelData.players)
                                     modelData.rounds[modelData.profile.currentRound] = draftRound
                                     modelData.profile.currentRound += 1;
                                     modelData.hasBids = false

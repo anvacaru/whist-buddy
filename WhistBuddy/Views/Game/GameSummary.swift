@@ -15,7 +15,7 @@ struct GameSummary: View {
         ScrollView {
             GameHead(profile: modelData.profile, playerIndex: 0)
             ForEach(0..<modelData.profile.playerCount.rawValue, id:\.self) { idx in
-                GameEntry(profile: modelData.profile, rounds: modelData.rounds, playerIndex: idx)
+                GameEntry(playerIndex: idx)
                 Divider()
                 Spacer()
             }

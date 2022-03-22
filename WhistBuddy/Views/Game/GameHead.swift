@@ -13,7 +13,7 @@ struct GameHead: View {
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(alignment:.center, spacing: 0) {
-                Text(profile.playerNames[playerIndex])
+                Text("Player 1")
                     .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/).hidden()
                     
                 Divider()

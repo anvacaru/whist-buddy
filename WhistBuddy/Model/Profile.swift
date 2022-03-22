@@ -13,10 +13,12 @@ struct Profile {
     var gameMode: GameMode = GameMode.standard
     var prefersBonus: Bool = false
     var bonusValue: Int = 5
-    var playerNames: [String] = ["Player 1", "Player 2", "Player 3", "Player 4", "Player 5", "Player 6"]
     var currentRound: Int = 0
     var gameHands: [Hand] = [Hand.one]
-    
+    var playerNames: [String] = ["Player 1", "Player 2", "Player 3", "Player 4", "Player 5", "Player 6"]
+
+    static var defaultNames: [String] = ["Player 1", "Player 2", "Player 3", "Player 4", "Player 5", "Player 6"]
+
     static let `default` = Profile()
 
     enum GameMode: String, CaseIterable, Identifiable {

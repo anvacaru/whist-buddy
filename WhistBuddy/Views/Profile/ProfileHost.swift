@@ -36,8 +36,8 @@ struct ProfileHost: View {
                         modelData.profile = draftProfile
                         modelData.profile.initGameHands()
                         modelData.rounds = Round.initGameRounds(playerCount: modelData.profile.playerCount, gameHands: modelData.profile.gameHands)
+                        modelData.players = Player.initPlayers(playerNames: modelData.profile.playerNames, playerCount: modelData.profile.playerCount)
                         modelData.profile.currentRound = 0
-                        modelData.scores = Array(repeating:0, count: modelData.profile.playerCount.rawValue)
                         modelData.isIntialized = true
                     }
             }

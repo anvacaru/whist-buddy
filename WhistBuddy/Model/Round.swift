@@ -58,17 +58,12 @@ struct Round: Identifiable {
         return sum == hand.rawValue
     }
     
-    mutating func computeScore(previousScores: [Int]) -> [Int]{
-        for idx in 0..<bids.count {
-            if bids[idx] == results[idx] {
-                scores[idx] = previousScores[idx] + 5 + bids[idx].rawValue
-            } else {
-                scores[idx] = previousScores[idx] - abs(bids[idx].rawValue - results[idx].rawValue)
-            }
+    mutating func setScores(players: [Player]) {
+        for player in players {
+            scores[player.id] = player.score
         }
-        return scores
     }
-    
+
     static func initGameRounds(playerCount: Profile.PlayerCount, gameHands: [Hand]) -> [Round] {
         var counter: Int = 0
         var rounds: [Round] = []

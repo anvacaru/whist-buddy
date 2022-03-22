@@ -15,7 +15,7 @@ struct RoundEditor: View {
     var body: some View {
         List {
             ForEach(0..<modelData.profile.playerCount.rawValue) { idx in
-                InputEditor(playerName: modelData.profile.playerNames[idx], inputBid: $input[idx], hand: inputRound.hand)
+                InputEditor(playerName: modelData.players[idx].name, inputBid: $input[idx], hand: inputRound.hand)
                     .onAppear() {
                         input = inputRound.bids
                     }
