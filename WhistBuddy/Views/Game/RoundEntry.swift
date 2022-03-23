@@ -13,18 +13,19 @@ struct RoundEntry: View {
     var round: Round
     var playerIndex: Int
     var body: some View {
-        HStack {
-            VStack {
-                if(round.bids[playerIndex] == round.results[playerIndex]){
-                    Text(String(round.bids[playerIndex].rawValue))
-                } else {
-                    Text(String(round.bids[playerIndex].rawValue)).strikethrough()
+        if (playerIndex < round.results.count){
+            HStack {
+                VStack {
+                    if(round.bids[playerIndex] == round.results[playerIndex]){
+                        Text(String(round.bids[playerIndex].rawValue))
+                    } else {
+                        Text(String(round.bids[playerIndex].rawValue)).strikethrough()
+                    }
+                    Text(String(round.results[playerIndex].rawValue))
                 }
-                Text(String(round.results[playerIndex].rawValue))
+                Text(String(round.scores[playerIndex]))
             }
-            Text(String(round.scores[playerIndex]))
         }
-
     }
 }
 

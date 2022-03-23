@@ -14,8 +14,10 @@ struct GameEntry: View {
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(alignment:.center, spacing: 0) {
-                Text(modelData.players[playerIndex].name)
-                    .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+                if (playerIndex < modelData.players.count) {
+                    Text(modelData.players[playerIndex].name)
+                        .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+                }
                     
                 Divider()
                 ForEach(1...modelData.profile.currentRound + 1, id:\.self) { idx in

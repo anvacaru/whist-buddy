@@ -43,15 +43,19 @@ struct InputHost: View {
                         } else {
                             if !modelData.hasResults {
                                 if draftRound.validateResults() {
-                                    modelData.hasResults = true
-                                    modelData.updatePlayerScores(round: draftRound)
-                                    draftRound.setScores(players: modelData.players)
-                                    modelData.rounds[modelData.profile.currentRound] = draftRound
-                                    modelData.profile.currentRound += 1;
-                                    modelData.hasBids = false
-                                    modelData.hasResults = false
-                                    if modelData.profile.currentRound == modelData.profile.gameHands.count {
-                                        modelData.gameState = ModelData.GameState.finished
+                                    if (modelData.profile.replayRound && draftRound.replayRound()) {
+                                        modelData.rounds[modelData.profile.currentRound] = Round(id: draftRound.id, playerCount: modelData.profile.playerCount, hand: draftRound.hand)
+                                    } else {
+                                        modelData.hasResults = true
+                                        modelData.updatePlayerScores(round: draftRound)
+                                        draftRound.setScores(players: modelData.players)
+                                        modelData.rounds[modelData.profile.currentRound] = draftRound
+                                        modelData.profile.currentRound += 1;
+                                        modelData.hasBids = false
+                                        modelData.hasResults = false
+                                        if modelData.profile.currentRound == modelData.profile.gameHands.count {
+                                            modelData.gameState = ModelData.GameState.finished
+                                        }
                                     }
                                 }
                             }

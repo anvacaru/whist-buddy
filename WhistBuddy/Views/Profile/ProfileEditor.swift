@@ -13,7 +13,8 @@ struct ProfileEditor: View {
     var body: some View {
         List {
             VStack(alignment: .leading, spacing: 20) {
-                Text("Number of Players").bold()
+                Text("Number of Players")
+                    .bold()
                 
                 Picker("Players", selection: $profile.playerCount) {
                     ForEach(Profile.PlayerCount.allCases) { count in
@@ -47,6 +48,10 @@ struct ProfileEditor: View {
                     }
                 }
                 .pickerStyle(.wheel)
+            }
+            Toggle(isOn: $profile.replayRound) {
+                Text("Replay round if everyone loses")
+                    .bold()
             }
             ForEach(0..<profile.playerCount.rawValue, id:\.self) { index in
                 TextField("Player Name", text: $profile.playerNames[index])

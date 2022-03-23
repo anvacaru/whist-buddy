@@ -64,6 +64,17 @@ struct Round: Identifiable {
         }
     }
 
+    func replayRound() -> Bool {
+        var shouldReplay:Bool = true
+        for idx in 0..<bids.count {
+            if bids[idx] == results[idx] {
+                shouldReplay = false
+                break
+            }
+        }
+        return shouldReplay
+    }
+
     static func initGameRounds(playerCount: Profile.PlayerCount, gameHands: [Hand]) -> [Round] {
         var counter: Int = 0
         var rounds: [Round] = []

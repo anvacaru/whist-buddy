@@ -16,6 +16,7 @@ struct Profile {
     var currentRound: Int = 0
     var gameHands: [Hand] = [Hand.one]
     var playerNames: [String] = ["Player 1", "Player 2", "Player 3", "Player 4", "Player 5", "Player 6"]
+    var replayRound: Bool = false
 
     static var defaultNames: [String] = ["Player 1", "Player 2", "Player 3", "Player 4", "Player 5", "Player 6"]
 
