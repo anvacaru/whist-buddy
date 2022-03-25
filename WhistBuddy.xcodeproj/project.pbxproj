@@ -38,6 +38,7 @@
 		318DEF0F27EDDEEE00671C0C /* PlayerNamesEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318DEF0E27EDDEEE00671C0C /* PlayerNamesEditor.swift */; };
 		318DEF1A27EE3EB100671C0C /* RoundList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318DEF1927EE3EB100671C0C /* RoundList.swift */; };
 		318DEF1C27EE413200671C0C /* PlayerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318DEF1B27EE413200671C0C /* PlayerList.swift */; };
+		318DEF1F27EE531300671C0C /* InputListEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318DEF1E27EE531300671C0C /* InputListEditor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +74,7 @@
 		318DEF0E27EDDEEE00671C0C /* PlayerNamesEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerNamesEditor.swift; sourceTree = "<group>"; };
 		318DEF1927EE3EB100671C0C /* RoundList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundList.swift; sourceTree = "<group>"; };
 		318DEF1B27EE413200671C0C /* PlayerList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerList.swift; sourceTree = "<group>"; };
+		318DEF1E27EE531300671C0C /* InputListEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputListEditor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +158,7 @@
 		31435BBE27E603D300A4B3CA /* Input */ = {
 			isa = PBXGroup;
 			children = (
+				318DEF1D27EE522200671C0C /* Helpers */,
 				31435BBF27E6040300A4B3CA /* InputEditor.swift */,
 				31435BC327E61E3F00A4B3CA /* InputHost.swift */,
 				315C131627E86E230024DB2F /* RoundEditor.swift */,
@@ -200,6 +203,14 @@
 				318DEF0A27EDD78100671C0C /* ReplayRoundEditor.swift */,
 				318DEF0C27EDDA3D00671C0C /* StreakBonusValueEditor.swift */,
 				318DEF0E27EDDEEE00671C0C /* PlayerNamesEditor.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		318DEF1D27EE522200671C0C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				318DEF1E27EE531300671C0C /* InputListEditor.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -294,6 +305,7 @@
 				318DEF0527EDD28400671C0C /* PlayerCountEditor.swift in Sources */,
 				31435BC227E6052C00A4B3CA /* Hand.swift in Sources */,
 				318DEEF727E9F17800671C0C /* GameStandings.swift in Sources */,
+				318DEF1F27EE531300671C0C /* InputListEditor.swift in Sources */,
 				3182C67327E1359B00B8E719 /* Profile.swift in Sources */,
 				315C131727E86E230024DB2F /* RoundEditor.swift in Sources */,
 				311F59B827E0A83A0001C116 /* ModelData.swift in Sources */,

@@ -28,12 +28,11 @@ struct InputHost: View {
                     Spacer()
                     EditButton()
                 }
-
             }
             .padding()
             
             if editMode?.wrappedValue == .active {
-                RoundEditor(inputRound: $draftRound)
+                RoundEditor(round: $draftRound)
                     .onAppear() {
                         draftRound = modelData.rounds[modelData.profile.currentRound]
                     }

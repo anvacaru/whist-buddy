@@ -9,31 +9,23 @@ import SwiftUI
 
 struct RoundEditor: View {
     @EnvironmentObject var modelData: ModelData
-    @Binding var inputRound: Round
+    @Binding var round: Round
     @State private var input: [Round.Bid] = Round.default.bids
     
     var body: some View {
-        List {
-            ForEach(0..<modelData.profile.playerCount.rawValue) { idx in
-                InputEditor(playerName: modelData.players[idx].name, inputBid: $input[idx], hand: inputRound.hand)
-                    .onAppear() {
-                        input = inputRound.bids
-                    }
-                    .onDisappear() {
-                        if (!modelData.hasBids && !modelData.hasResults) {
-                            inputRound.bids = input
-                        } else {
-                            inputRound.results = input
-                        }
-                    }
-            }
+        VStack {
+            Text("Input \(!modelData.hasBids ? "Bids" : "Results")")
+                .font(.title)
+                .bold()
+            
+            InputListEditor(input: $input, playerNames: modelData.profile.playerNames, round: $round, playerCount: modelData.profile.playerCount, hasBids: modelData.hasBids, hasResults: modelData.hasResults)
         }
     }
 }
 
 struct RoundEditor_Previews: PreviewProvider {
     static var previews: some View {
-        RoundEditor(inputRound: .constant(Round.default))
+        RoundEditor(round: .constant(Round.default))
             .environmentObject(ModelData())
     }
 }
