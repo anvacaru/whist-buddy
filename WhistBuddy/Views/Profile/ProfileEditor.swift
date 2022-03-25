@@ -12,59 +12,18 @@ struct ProfileEditor: View {
 
     var body: some View {
         VStack {
-            Text("Game Settings")
+            Text("Game Rules")
                 .font(.title)
                 .bold()
             List {
-                VStack(alignment: .leading, spacing: 20) {
-                    Text("Number of Players")
-                        .bold()
-                    
-                    Picker("Players", selection: $profile.playerCount) {
-                        ForEach(Profile.PlayerCount.allCases) { count in
-                            Text(String(count.rawValue)).tag(count)
-                        }
-                    }
-                    .pickerStyle(.segmented)
+                GameModeEditor(gameMode: $profile.gameMode)
+                StreakBonusEditor(prefersBonus: $profile.prefersBonus)
+                if(profile.prefersBonus) {
+                    StreakBonusValueEditor(bonusValue: $profile.bonusValue)
                 }
-
-                VStack(alignment: .leading, spacing: 20) {
-                    Text("Game Mode").bold()
-                    
-                    Picker("Game Mode", selection: $profile.gameMode) {
-                        ForEach(Profile.GameMode.allCases) { mode in
-                            Text(mode.rawValue).tag(mode)
-                        }
-                    }
-                    .pickerStyle(.segmented)
-                }
-
-                
-                Toggle(isOn: $profile.prefersBonus) {
-                    VStack(alignment: .leading) {
-                        Text("Enable Streak Bonus")
-                            .bold()
-                        Text("When a player gets a 5 streak win, he will get awarded. Same goes for losing.").font(.caption)
-                    }
-                }
-                if profile.prefersBonus {
-                    Text("Bonus Value")
-                        .bold()
-                    Picker("Bonus value", selection: $profile.bonusValue) {
-                        ForEach(1..<11, id: \.self) { value in
-                            Text(String(value))
-                                .tag(String(value))
-                        }
-                    }
-                    .pickerStyle(.wheel)
-                }
-                Toggle(isOn: $profile.replayRound) {
-                    Text("Replay round if everyone loses")
-                        .bold()
-                }
-                ForEach(0..<profile.playerCount.rawValue, id:\.self) { index in
-                    TextField("Player Name", text: $profile.playerNames[index])
-                }
+                ReplayRoundEditor(replayRound: $profile.replayRound)
+                PlayerCountEditor(playerCount:$profile.playerCount)
+                PlayerNamesEditor(playerCount: profile.playerCount, playerNames: $profile.playerNames)
             }
         }
     }
