@@ -13,6 +13,7 @@ struct InputHost: View {
     @EnvironmentObject var modelData: ModelData
     @Binding var showingInput: Bool
     @State private var draftRound: Round = Round.default
+    @Binding var roundRepeated: Bool
 
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
@@ -23,9 +24,11 @@ struct InputHost: View {
                         editMode?.animation().wrappedValue = .inactive
                         showingInput = false
                     }
+                    .tag("Cancel")
+                    Spacer()
+                    EditButton()
                 }
-                Spacer()
-                EditButton()
+
             }
             .padding()
             
@@ -44,6 +47,7 @@ struct InputHost: View {
                             if !modelData.hasResults {
                                 if draftRound.validateResults() {
                                     if (modelData.profile.replayRound && draftRound.replayRound()) {
+                                        roundRepeated = true
                                         modelData.rounds[modelData.profile.currentRound] = Round(id: draftRound.id, playerCount: modelData.profile.playerCount, hand: draftRound.hand)
                                     } else {
                                         modelData.hasResults = true
@@ -69,7 +73,7 @@ struct InputHost: View {
 
 struct InputHost_Previews: PreviewProvider {
     static var previews: some View {
-        InputHost(showingInput: .constant(true))
+        InputHost(showingInput: .constant(true), roundRepeated: .constant(false))
             .environmentObject(ModelData())
     }
 }

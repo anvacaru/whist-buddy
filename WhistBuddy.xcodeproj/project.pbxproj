@@ -28,6 +28,10 @@
 		3182C68327E23EE300B8E719 /* GameHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3182C68227E23EE300B8E719 /* GameHost.swift */; };
 		318DEEF527E9B92D00671C0C /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318DEEF427E9B92D00671C0C /* Player.swift */; };
 		318DEEF727E9F17800671C0C /* GameStandings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318DEEF627E9F17800671C0C /* GameStandings.swift */; };
+		318DEEFA27EDB38500671C0C /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318DEEF927EDB38500671C0C /* GameMode.swift */; };
+		318DEEFF27EDBA9300671C0C /* StreakBonus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318DEEFE27EDBA9300671C0C /* StreakBonus.swift */; };
+		318DEF0127EDC24700671C0C /* Players.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318DEF0027EDC24700671C0C /* Players.swift */; };
+		318DEF0327EDC7CA00671C0C /* ReplayRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318DEF0227EDC7CA00671C0C /* ReplayRound.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +57,10 @@
 		3182C68227E23EE300B8E719 /* GameHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHost.swift; sourceTree = "<group>"; };
 		318DEEF427E9B92D00671C0C /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		318DEEF627E9F17800671C0C /* GameStandings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStandings.swift; sourceTree = "<group>"; };
+		318DEEF927EDB38500671C0C /* GameMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMode.swift; sourceTree = "<group>"; };
+		318DEEFE27EDBA9300671C0C /* StreakBonus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakBonus.swift; sourceTree = "<group>"; };
+		318DEF0027EDC24700671C0C /* Players.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Players.swift; sourceTree = "<group>"; };
+		318DEF0227EDC7CA00671C0C /* ReplayRound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplayRound.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +154,7 @@
 		3182C66E27E134E600B8E719 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				318DEEF827EDB35B00671C0C /* Helpers */,
 				3182C66C27E132CA00B8E719 /* ProfileSummary.swift */,
 				3182C67027E1350400B8E719 /* ProfileEditor.swift */,
 				3182C67427E13BB600B8E719 /* ProfileHost.swift */,
@@ -164,6 +173,17 @@
 				318DEEF627E9F17800671C0C /* GameStandings.swift */,
 			);
 			path = Game;
+			sourceTree = "<group>";
+		};
+		318DEEF827EDB35B00671C0C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				318DEEF927EDB38500671C0C /* GameMode.swift */,
+				318DEF0027EDC24700671C0C /* Players.swift */,
+				318DEEFE27EDBA9300671C0C /* StreakBonus.swift */,
+				318DEF0227EDC7CA00671C0C /* ReplayRound.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,8 +256,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				318DEEFA27EDB38500671C0C /* GameMode.swift in Sources */,
 				3182C66D27E132CA00B8E719 /* ProfileSummary.swift in Sources */,
 				311F599C27E098340001C116 /* ContentView.swift in Sources */,
+				318DEF0327EDC7CA00671C0C /* ReplayRound.swift in Sources */,
+				318DEEFF27EDBA9300671C0C /* StreakBonus.swift in Sources */,
 				3182C67527E13BB600B8E719 /* ProfileHost.swift in Sources */,
 				31435BC027E6040300A4B3CA /* InputEditor.swift in Sources */,
 				3182C67B27E15DEE00B8E719 /* GameEntry.swift in Sources */,
@@ -254,6 +277,7 @@
 				315C131727E86E230024DB2F /* RoundEditor.swift in Sources */,
 				311F59B827E0A83A0001C116 /* ModelData.swift in Sources */,
 				318DEEF527E9B92D00671C0C /* Player.swift in Sources */,
+				318DEF0127EDC24700671C0C /* Players.swift in Sources */,
 				3182C68327E23EE300B8E719 /* GameHost.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -12,25 +12,22 @@ struct ProfileSummary: View {
 
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 10) {
-                Text("Game Settings")
+            VStack() {
+                Text("Game Rules")
                     .bold()
                     .font(.title)
-                Text("Game mode: \(profile.gameMode.rawValue)")
-                Text("Players: \(profile.playerCount.rawValue)")
-                Text("Streak bonus: \(profile.prefersBonus ? "Yes" :"No" ) ")
-                if profile.prefersBonus{
-                    Text("Streak Bonus Value: \(profile.bonusValue) points")
-                }
-                Text("Player Names")
-                    .bold()
-                    .font(.title3)
-                VStack(alignment: .leading){
-                    ForEach(0..<profile.playerCount.rawValue, id:\.self) {index in
-                        Text(profile.playerNames[index]).tag(profile.playerNames[index])
+                
+                HStack() {
+                    VStack(alignment: .leading, spacing: 10) {
+                        GameMode(gameMode: profile.gameMode)
+                        StreakBonus(prefersBonus:profile.prefersBonus, bonusValue: profile.bonusValue)
+                        ReplayRound(replayRound: profile.replayRound)
+                        Players(playerCount: profile.playerCount, playerNames: profile.playerNames)
                     }
+                    Spacer()
                 }
             }
+
         }
     }
 }

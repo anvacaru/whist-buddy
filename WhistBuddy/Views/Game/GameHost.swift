@@ -11,6 +11,8 @@ struct GameHost: View {
     @EnvironmentObject var modelData: ModelData
     @State private var showingProfile = false
     @State private var showingInput = false
+    @State private var roundRepeated = false
+    @State private var showAlert = false
     @State private var editMode:EditMode = .active
     var body: some View {
         VStack{
@@ -31,10 +33,21 @@ struct GameHost: View {
                     } label: {
                         Label("Input", systemImage: "person.crop.circle")
                     }
-                    .sheet(isPresented: $showingInput) {
-                        InputHost(showingInput: $showingInput)
+                    .sheet(isPresented: $showingInput,
+                           onDismiss:{
+                        showAlert = roundRepeated
+                        
+                    }) {
+                        InputHost(showingInput: $showingInput, roundRepeated: $roundRepeated)
                             .environmentObject(modelData)
                             .environment(\.editMode, $editMode)
+                    }
+                    .alert(isPresented: $showAlert) {
+                        Alert(
+                            title: Text("Current Location Not Available"),
+                            message: Text("Your current location can’t be " +
+                                            "determined at this time.")
+                        )
                     }
                     .padding()
                     Spacer()
