@@ -20,7 +20,7 @@ struct StreakBonusValueEditor: View {
                         .tag(String(value))
                 }
             }
-            .pickerStyle(.wheel)
+            .pickerStyle(.segmented)
         }
     }
 }

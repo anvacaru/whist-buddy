@@ -17,9 +17,10 @@ struct GameSummary: View {
                 .frame(maxWidth: 100)
             Divider()
             ScrollView(.horizontal, showsIndicators: false) {
-                HStack {
+                HStack(alignment:.top) {
                     ForEach(modelData.rounds.filter({$0.id <= modelData.profile.currentRound})) { round in
                         RoundList(round: round, players:modelData.players, currentRound: modelData.profile.currentRound, displayBid: (modelData.hasBids || modelData.profile.currentRound > round.id), displayScore: modelData.profile.currentRound > round.id)
+                        Divider()
                     }
                 }
             }

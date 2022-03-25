@@ -11,7 +11,7 @@ import Foundation
 struct Profile {
     var playerCount: PlayerCount = PlayerCount.six
     var gameMode: GameMode = GameMode.standard
-    var prefersBonus: Bool = false
+    var prefersBonus: Bool = true
     var bonusValue: Int = 5
     var currentRound: Int = 0
     var gameHands: [Hand] = [Hand.one]

@@ -16,24 +16,13 @@ struct GameHost: View {
     @State private var editMode:EditMode = .active
     var body: some View {
         VStack{
-            if modelData.gameState == ModelData.GameState.inProgress {
-                ScrollView{
-                    GameSummary()
-                        .environmentObject(modelData)
-                }
-            }
-            
-            if modelData.gameState == ModelData.GameState.finished {
-                GameStandings(players: Player.sortPlayers(players: modelData.players), playerCount: modelData.profile.playerCount)
-            }
-
             HStack {
                 if modelData.gameState == ModelData.GameState.inProgress {
                     Button {
                         showingInput.toggle()
                         editMode = .active
                     } label: {
-                        Label("Input", systemImage: "person.crop.circle")
+                        Label("Input", systemImage: "square.and.pencil")
                     }
                     .sheet(isPresented: $showingInput,
                            onDismiss: {
@@ -45,9 +34,8 @@ struct GameHost: View {
                     }
                     .alert(isPresented: $showAlert) {
                         Alert(
-                            title: Text("Current Location Not Available"),
-                            message: Text("Your current location can’t be " +
-                                            "determined at this time.")
+                            title: Text("Round Replay"),
+                            message: Text("All players have failed their hand. The round will restart.")
                         )
                     }
                     .padding()
@@ -56,14 +44,26 @@ struct GameHost: View {
                                 
                 Button {
                     showingProfile.toggle()
+                    editMode = .active
                 } label: {
-                    Label("Game Settings", systemImage: "person.crop.circle")
+                    Label("New Game", systemImage: "person.3.fill")
                 }
                 .sheet(isPresented: $showingProfile) {
                     ProfileHost()
                         .environmentObject(modelData)
                 }
                 .padding()
+            }
+            
+            if modelData.gameState == ModelData.GameState.inProgress {
+                ScrollView{
+                    GameSummary()
+                        .environmentObject(modelData)
+                }
+            }
+            
+            if modelData.gameState == ModelData.GameState.finished {
+                GameStandings(players: Player.sortPlayers(players: modelData.players), playerCount: modelData.profile.playerCount)
             }
 
         }
