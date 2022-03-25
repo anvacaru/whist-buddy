@@ -9,15 +9,19 @@ import SwiftUI
 
 struct GameSummary: View {
     @EnvironmentObject var modelData: ModelData
-    var rounds: [Round] = [Round.default]
     
     var body: some View {
-        ScrollView {
-            GameHead(profile: modelData.profile, playerIndex: 0)
-            ForEach(0..<modelData.profile.playerCount.rawValue, id:\.self) { idx in
-                GameEntry(playerIndex: idx)
-                Divider()
-                Spacer()
+        HStack(alignment: .top) {
+            PlayerList(players: modelData.players)
+                .padding(.leading)
+                .frame(maxWidth: 100)
+            Divider()
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack {
+                    ForEach(modelData.rounds) { round in
+                        RoundList(round: round, playerCount: modelData.profile.playerCount, currentRound: modelData.profile.currentRound)
+                    }
+                }
             }
         }
     }

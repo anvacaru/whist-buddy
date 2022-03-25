@@ -9,7 +9,7 @@ import Foundation
 
 
 struct Profile {
-    var playerCount: PlayerCount = PlayerCount.four
+    var playerCount: PlayerCount = PlayerCount.six
     var gameMode: GameMode = GameMode.standard
     var prefersBonus: Bool = false
     var bonusValue: Int = 5

@@ -21,10 +21,8 @@
 		3182C67127E1350400B8E719 /* ProfileEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3182C67027E1350400B8E719 /* ProfileEditor.swift */; };
 		3182C67327E1359B00B8E719 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3182C67227E1359B00B8E719 /* Profile.swift */; };
 		3182C67527E13BB600B8E719 /* ProfileHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3182C67427E13BB600B8E719 /* ProfileHost.swift */; };
-		3182C67B27E15DEE00B8E719 /* GameEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3182C67A27E15DEE00B8E719 /* GameEntry.swift */; };
 		3182C67D27E15FB400B8E719 /* RoundEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3182C67C27E15FB400B8E719 /* RoundEntry.swift */; };
 		3182C67F27E161AF00B8E719 /* GameSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3182C67E27E161AF00B8E719 /* GameSummary.swift */; };
-		3182C68127E21CFE00B8E719 /* GameHead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3182C68027E21CFE00B8E719 /* GameHead.swift */; };
 		3182C68327E23EE300B8E719 /* GameHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3182C68227E23EE300B8E719 /* GameHost.swift */; };
 		318DEEF527E9B92D00671C0C /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318DEEF427E9B92D00671C0C /* Player.swift */; };
 		318DEEF727E9F17800671C0C /* GameStandings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318DEEF627E9F17800671C0C /* GameStandings.swift */; };
@@ -38,6 +36,8 @@
 		318DEF0B27EDD78100671C0C /* ReplayRoundEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318DEF0A27EDD78100671C0C /* ReplayRoundEditor.swift */; };
 		318DEF0D27EDDA3D00671C0C /* StreakBonusValueEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318DEF0C27EDDA3D00671C0C /* StreakBonusValueEditor.swift */; };
 		318DEF0F27EDDEEE00671C0C /* PlayerNamesEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318DEF0E27EDDEEE00671C0C /* PlayerNamesEditor.swift */; };
+		318DEF1A27EE3EB100671C0C /* RoundList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318DEF1927EE3EB100671C0C /* RoundList.swift */; };
+		318DEF1C27EE413200671C0C /* PlayerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318DEF1B27EE413200671C0C /* PlayerList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,10 +56,8 @@
 		3182C67027E1350400B8E719 /* ProfileEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditor.swift; sourceTree = "<group>"; };
 		3182C67227E1359B00B8E719 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		3182C67427E13BB600B8E719 /* ProfileHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHost.swift; sourceTree = "<group>"; };
-		3182C67A27E15DEE00B8E719 /* GameEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEntry.swift; sourceTree = "<group>"; };
 		3182C67C27E15FB400B8E719 /* RoundEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundEntry.swift; sourceTree = "<group>"; };
 		3182C67E27E161AF00B8E719 /* GameSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSummary.swift; sourceTree = "<group>"; };
-		3182C68027E21CFE00B8E719 /* GameHead.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHead.swift; sourceTree = "<group>"; };
 		3182C68227E23EE300B8E719 /* GameHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHost.swift; sourceTree = "<group>"; };
 		318DEEF427E9B92D00671C0C /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		318DEEF627E9F17800671C0C /* GameStandings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStandings.swift; sourceTree = "<group>"; };
@@ -73,6 +71,8 @@
 		318DEF0A27EDD78100671C0C /* ReplayRoundEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplayRoundEditor.swift; sourceTree = "<group>"; };
 		318DEF0C27EDDA3D00671C0C /* StreakBonusValueEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakBonusValueEditor.swift; sourceTree = "<group>"; };
 		318DEF0E27EDDEEE00671C0C /* PlayerNamesEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerNamesEditor.swift; sourceTree = "<group>"; };
+		318DEF1927EE3EB100671C0C /* RoundList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundList.swift; sourceTree = "<group>"; };
+		318DEF1B27EE413200671C0C /* PlayerList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,12 +177,12 @@
 		3182C67927E15DD600B8E719 /* Game */ = {
 			isa = PBXGroup;
 			children = (
-				3182C67A27E15DEE00B8E719 /* GameEntry.swift */,
-				3182C68027E21CFE00B8E719 /* GameHead.swift */,
 				3182C67C27E15FB400B8E719 /* RoundEntry.swift */,
 				3182C67E27E161AF00B8E719 /* GameSummary.swift */,
 				3182C68227E23EE300B8E719 /* GameHost.swift */,
 				318DEEF627E9F17800671C0C /* GameStandings.swift */,
+				318DEF1927EE3EB100671C0C /* RoundList.swift */,
+				318DEF1B27EE413200671C0C /* PlayerList.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -276,15 +276,14 @@
 			files = (
 				318DEEFA27EDB38500671C0C /* GameMode.swift in Sources */,
 				3182C66D27E132CA00B8E719 /* ProfileSummary.swift in Sources */,
+				318DEF1C27EE413200671C0C /* PlayerList.swift in Sources */,
 				311F599C27E098340001C116 /* ContentView.swift in Sources */,
 				318DEF0727EDD36A00671C0C /* GameModeEditor.swift in Sources */,
 				318DEF0327EDC7CA00671C0C /* ReplayRound.swift in Sources */,
 				318DEEFF27EDBA9300671C0C /* StreakBonus.swift in Sources */,
 				3182C67527E13BB600B8E719 /* ProfileHost.swift in Sources */,
 				31435BC027E6040300A4B3CA /* InputEditor.swift in Sources */,
-				3182C67B27E15DEE00B8E719 /* GameEntry.swift in Sources */,
 				3182C67127E1350400B8E719 /* ProfileEditor.swift in Sources */,
-				3182C68127E21CFE00B8E719 /* GameHead.swift in Sources */,
 				3182C67D27E15FB400B8E719 /* RoundEntry.swift in Sources */,
 				31435BC427E61E3F00A4B3CA /* InputHost.swift in Sources */,
 				311F599A27E098340001C116 /* WhistBuddyApp.swift in Sources */,
@@ -302,6 +301,7 @@
 				318DEF0D27EDDA3D00671C0C /* StreakBonusValueEditor.swift in Sources */,
 				318DEEF527E9B92D00671C0C /* Player.swift in Sources */,
 				318DEF0127EDC24700671C0C /* Players.swift in Sources */,
+				318DEF1A27EE3EB100671C0C /* RoundList.swift in Sources */,
 				3182C68327E23EE300B8E719 /* GameHost.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

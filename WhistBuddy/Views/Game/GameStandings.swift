@@ -12,12 +12,18 @@ struct GameStandings: View {
     var playerCount: Profile.PlayerCount
     
     var body: some View {
-        List {
-            ForEach(0..<playerCount.rawValue) { idx in
-                HStack{
-                    Text(players[idx].name)
-                    Spacer()
-                    Text(String(players[idx].score))
+        VStack {
+            Text("Standings")
+                .font(.title)
+                .bold()
+    
+            List {
+                ForEach(0..<playerCount.rawValue, id:\.self) { index in
+                    HStack{
+                        Text(players[index].name)
+                        Spacer()
+                        Text(String(players[index].score))
+                    }
                 }
             }
         }

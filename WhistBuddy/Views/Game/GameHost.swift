@@ -17,15 +17,17 @@ struct GameHost: View {
     var body: some View {
         VStack{
             if modelData.gameState == ModelData.GameState.inProgress {
-                GameSummary()
-                    .environmentObject(modelData)
+                ScrollView{
+                    GameSummary()
+                        .environmentObject(modelData)
+                }
             }
             
             if modelData.gameState == ModelData.GameState.finished {
                 GameStandings(players: Player.sortPlayers(players: modelData.players), playerCount: modelData.profile.playerCount)
             }
 
-            HStack{
+            HStack {
                 if modelData.gameState == ModelData.GameState.inProgress {
                     Button {
                         showingInput.toggle()
@@ -34,9 +36,8 @@ struct GameHost: View {
                         Label("Input", systemImage: "person.crop.circle")
                     }
                     .sheet(isPresented: $showingInput,
-                           onDismiss:{
+                           onDismiss: {
                         showAlert = roundRepeated
-                        
                     }) {
                         InputHost(showingInput: $showingInput, roundRepeated: $roundRepeated)
                             .environmentObject(modelData)
