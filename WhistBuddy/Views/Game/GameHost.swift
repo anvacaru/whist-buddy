@@ -42,6 +42,7 @@ struct GameHost: View {
                     .sheet(isPresented: $showingInput,
                            onDismiss: {
                         showAlert = roundRepeated
+                        roundRepeated = false
                     }) {
                         InputHost(showingInput: $showingInput, roundRepeated: $roundRepeated)
                             .environmentObject(modelData)

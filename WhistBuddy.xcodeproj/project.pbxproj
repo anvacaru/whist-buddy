@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		311F599A27E098340001C116 /* WhistBuddyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311F599927E098340001C116 /* WhistBuddyApp.swift */; };
-		311F599C27E098340001C116 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311F599B27E098340001C116 /* ContentView.swift */; };
 		311F599E27E098360001C116 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 311F599D27E098360001C116 /* Assets.xcassets */; };
 		311F59A127E098360001C116 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 311F59A027E098360001C116 /* Preview Assets.xcassets */; };
 		311F59B227E0A3C20001C116 /* Round.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311F59B127E0A3C20001C116 /* Round.swift */; };
@@ -45,7 +44,6 @@
 /* Begin PBXFileReference section */
 		311F599627E098340001C116 /* WhistBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhistBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		311F599927E098340001C116 /* WhistBuddyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhistBuddyApp.swift; sourceTree = "<group>"; };
-		311F599B27E098340001C116 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		311F599D27E098360001C116 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		311F59A027E098360001C116 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		311F59B127E0A3C20001C116 /* Round.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Round.swift; sourceTree = "<group>"; };
@@ -145,7 +143,6 @@
 				31435BBE27E603D300A4B3CA /* Input */,
 				3182C67927E15DD600B8E719 /* Game */,
 				3182C66E27E134E600B8E719 /* Profile */,
-				311F599B27E098340001C116 /* ContentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -299,7 +296,6 @@
 				318DEEFA27EDB38500671C0C /* GameMode.swift in Sources */,
 				3182C66D27E132CA00B8E719 /* ProfileSummary.swift in Sources */,
 				318DEF1C27EE413200671C0C /* PlayerList.swift in Sources */,
-				311F599C27E098340001C116 /* ContentView.swift in Sources */,
 				318DEF0727EDD36A00671C0C /* GameModeEditor.swift in Sources */,
 				318DEF0327EDC7CA00671C0C /* ReplayRound.swift in Sources */,
 				318DEEFF27EDBA9300671C0C /* StreakBonus.swift in Sources */,

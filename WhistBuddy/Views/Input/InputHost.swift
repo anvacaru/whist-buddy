@@ -47,6 +47,8 @@ struct InputHost: View {
                                 if draftRound.validateResults() {
                                     if (modelData.profile.replayRound && draftRound.replayRound()) {
                                         roundRepeated = true
+                                        modelData.hasBids = false
+                                        modelData.hasResults = false
                                         modelData.rounds[modelData.profile.currentRound] = Round(id: draftRound.id, playerCount: modelData.profile.playerCount, hand: draftRound.hand)
                                     } else {
                                         modelData.hasResults = true

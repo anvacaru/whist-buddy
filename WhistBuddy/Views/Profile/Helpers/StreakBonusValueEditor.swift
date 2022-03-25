@@ -9,13 +9,14 @@ import SwiftUI
 
 struct StreakBonusValueEditor: View {
     @Binding var bonusValue: Int
+    let bonusValues: [Int] = [5, 10, 15]
 
     var body: some View {
         VStack {
             Text("Bonus Value")
                 .bold()
             Picker("Bonus value", selection: $bonusValue) {
-                ForEach(1..<11, id: \.self) { value in
+                ForEach(bonusValues, id:\.self) { value in
                     Text(String(value))
                         .tag(String(value))
                 }
