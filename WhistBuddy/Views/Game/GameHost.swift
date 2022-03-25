@@ -15,9 +15,24 @@ struct GameHost: View {
     @State private var showAlert = false
     @State private var editMode:EditMode = .active
     var body: some View {
-        VStack{
+        VStack {
             HStack {
-                if modelData.gameState == ModelData.GameState.inProgress {
+                Button {
+                    showingProfile.toggle()
+                    editMode = .active
+                } label: {
+                    Label("New Game", systemImage: "person.3.fill")
+                }
+                .sheet(isPresented: $showingProfile) {
+                    ProfileHost(showingProfile: $showingProfile)
+                        .environmentObject(modelData)
+                        .environment(\.editMode, $editMode)
+                }
+                .padding()
+                
+                if modelData.gameState == ModelData.GameState.inProgress && modelData.profile.currentRound < modelData.profile.gameHands.count {
+                    Spacer()
+                    
                     Button {
                         showingInput.toggle()
                         editMode = .active
@@ -39,20 +54,17 @@ struct GameHost: View {
                         )
                     }
                     .padding()
+                }
+                
+                if modelData.gameState == ModelData.GameState.finished {
                     Spacer()
+                    Button {
+                        modelData.gameState = ModelData.GameState.inProgress
+                    } label: {
+                        Label("Scoreboard", systemImage: "tablecells.fill")
+                    }
+                    .padding()
                 }
-                                
-                Button {
-                    showingProfile.toggle()
-                    editMode = .active
-                } label: {
-                    Label("New Game", systemImage: "person.3.fill")
-                }
-                .sheet(isPresented: $showingProfile) {
-                    ProfileHost()
-                        .environmentObject(modelData)
-                }
-                .padding()
             }
             
             if modelData.gameState == ModelData.GameState.inProgress {

@@ -19,11 +19,11 @@ struct RoundText: View {
         if strikethrough {
             Text(display ? String(value) : "")
                 .strikethrough()
-                .frame(width: 25, height: 25)
+                .frame(width: 28, height: 25)
                 .border(awarded ? .green : deprived ? .red : .clear)
         } else {
             Text(display ? String(value) : "")
-                .frame(width: 25, height: 25)
+                .frame(width: 28, height: 25)
                 .border(awarded ? .green : deprived ? .red : .clear)
         }
         

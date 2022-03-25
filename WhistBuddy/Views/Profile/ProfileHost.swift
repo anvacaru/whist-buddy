@@ -10,6 +10,7 @@ import SwiftUI
 struct ProfileHost: View {
     @Environment(\.editMode) var editMode
     @EnvironmentObject var modelData: ModelData
+    @Binding var showingProfile: Bool
     @State private var draftProfile = Profile.default
 
     var body: some View {
@@ -20,14 +21,13 @@ struct ProfileHost: View {
                         draftProfile = modelData.profile
                         editMode?.animation().wrappedValue = .inactive
                     }
+                    Spacer()
+                    EditButton()
                 }
-                Spacer()
-                EditButton()
+
             }
 
-            if editMode?.wrappedValue == .inactive {
-                ProfileSummary(profile: modelData.profile)
-            } else {
+            if editMode?.wrappedValue == .active {
                 ProfileEditor(profile: $draftProfile)
                     .onAppear {
                         draftProfile = modelData.profile
@@ -39,6 +39,7 @@ struct ProfileHost: View {
                         modelData.players = Player.initPlayers(playerNames: modelData.profile.playerNames, playerCount: modelData.profile.playerCount)
                         modelData.profile.currentRound = 0
                         modelData.gameState = ModelData.GameState.inProgress
+                        showingProfile = false
                     }
             }
         }
@@ -48,7 +49,7 @@ struct ProfileHost: View {
 
 struct ProfileHost_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileHost()
+        ProfileHost(showingProfile: .constant(true))
             .environmentObject(ModelData())
     }
 }
