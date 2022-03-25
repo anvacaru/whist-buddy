@@ -12,9 +12,10 @@ struct Player: Identifiable {
     var name: String = "Player"
     var score: Int = 0
     var streak: Int = 0
+    var awardedIn: [Int] = []
+    var deprivedIn: [Int] = []
 
     static let `default` = Player(id: 0, name: "Player 1", score: 0, streak: 0)
-    
     
     static func initPlayers(playerNames:[String], playerCount: Profile.PlayerCount) -> [Player] {
         var players:[Player] = []
@@ -24,7 +25,7 @@ struct Player: Identifiable {
         return players
     }
     
-    mutating func updateScore(roundPoints: Int, countStreak: Bool, bonusValue: Int) {
+    mutating func updateScore(roundPoints: Int, countStreak: Bool, bonusValue: Int, roundId: Int) {
         score += roundPoints
         if countStreak {
             if roundPoints > 0 {
@@ -34,8 +35,14 @@ struct Player: Identifiable {
             }
         }
         if streak % 5 == 0 && streak != 0 {
-            score += streak > 0 ? bonusValue : (-1) * bonusValue
+            let value = streak > 0 ? bonusValue : (-1) * bonusValue
+            score += value
             streak = 0
+            if value > 0 {
+                awardedIn.append(roundId)
+            } else {
+                deprivedIn.append(roundId)
+            }
         }
     }
 

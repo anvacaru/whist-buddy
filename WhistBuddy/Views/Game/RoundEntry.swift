@@ -12,31 +12,29 @@ struct RoundEntry: View {
     var round: Round
     var playerIndex: Int
     var currentRound: Int
+    var displayBid: Bool
+    var displayScore: Bool
     var awarded: Bool = false
     var deprived: Bool = false
+
     var body: some View {
         HStack {
             VStack {
                 if(round.bids[playerIndex] == round.results[playerIndex] || round.id == currentRound) {
-                    Text(String(round.bids[playerIndex].rawValue))
-                        .frame(width: 25, height: 25)
+                    RoundText(value: round.bids[playerIndex].rawValue, display: displayBid)
                 } else {
-                    Text(String(round.bids[playerIndex].rawValue)).strikethrough()
-                        .frame(width: 25, height: 25)
+                    RoundText(value: round.bids[playerIndex].rawValue, display: displayBid, strikethrough: true)
                 }
-                Text(String(round.results[playerIndex].rawValue))
-                    .frame(width: 25, height: 25)
+                RoundText(value: round.results[playerIndex].rawValue, display: displayScore)
             }
-            Text(String(round.scores[playerIndex]))
-                .frame(width: 25, height: 25)
-                .border(awarded ? .green : deprived ? .red : .clear)
+            RoundText(value: round.scores[playerIndex], display: displayScore, awarded: awarded, deprived: deprived)
         }
     }
 }
 
 struct RoundEntry_Previews: PreviewProvider {
     static var previews: some View {
-        RoundEntry(round: Round.default, playerIndex: 0, currentRound: 1, awarded: true)
+        RoundEntry(round: Round.default, playerIndex: 0, currentRound: 1, displayBid: true, displayScore: true, awarded: true)
             .environmentObject(ModelData())
     }
 }

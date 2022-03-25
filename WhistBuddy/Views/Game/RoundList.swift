@@ -9,15 +9,18 @@ import SwiftUI
 
 struct RoundList: View {
     var round: Round
-    var playerCount: Profile.PlayerCount
+    var players: [Player]
     var currentRound: Int
+    var displayBid: Bool
+    var displayScore: Bool
+    
     var body: some View {
         VStack {
             Text(String(round.hand.rawValue))
                 .frame(width:58, height: 58)
             Divider()
-            ForEach(0..<playerCount.rawValue, id:\.self) { index in
-                RoundEntry(round: round, playerIndex: index, currentRound: currentRound)
+            ForEach(players) { player in
+                RoundEntry(round: round, playerIndex: player.id, currentRound: currentRound, displayBid: displayBid, displayScore: displayScore, awarded: player.awardedIn.contains(round.id), deprived: player.deprivedIn.contains(round.id))
                 Divider()
             }
         }
@@ -26,6 +29,6 @@ struct RoundList: View {
 
 struct RoundList_Previews: PreviewProvider {
     static var previews: some View {
-        RoundList(round: Round.default, playerCount: Profile.PlayerCount.six, currentRound: 1)
+        RoundList(round: Round.default, players:Player.initPlayers(playerNames: Profile.defaultNames, playerCount: Profile.PlayerCount.six), currentRound: 1, displayBid: true, displayScore: true)
     }
 }

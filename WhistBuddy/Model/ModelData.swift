@@ -26,7 +26,7 @@ final class ModelData: ObservableObject {
             } else {
                 roundPoints = abs(round.bids[idx].rawValue - round.results[idx].rawValue) * (-1)
             }
-            players[idx].updateScore(roundPoints: roundPoints, countStreak: countStreak, bonusValue: profile.bonusValue)
+            players[idx].updateScore(roundPoints: roundPoints, countStreak: countStreak, bonusValue: profile.bonusValue, roundId: round.id)
         }
     }
     
