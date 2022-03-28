@@ -39,6 +39,7 @@
 		318DEF1C27EE413200671C0C /* PlayerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318DEF1B27EE413200671C0C /* PlayerList.swift */; };
 		318DEF1F27EE531300671C0C /* InputListEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318DEF1E27EE531300671C0C /* InputListEditor.swift */; };
 		318DEF2227EE58BB00671C0C /* RoundText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318DEF2127EE58BB00671C0C /* RoundText.swift */; };
+		318DEF2427F1E3CE00671C0C /* AlertInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318DEF2327F1E3CE00671C0C /* AlertInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +76,7 @@
 		318DEF1B27EE413200671C0C /* PlayerList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerList.swift; sourceTree = "<group>"; };
 		318DEF1E27EE531300671C0C /* InputListEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputListEditor.swift; sourceTree = "<group>"; };
 		318DEF2127EE58BB00671C0C /* RoundText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundText.swift; sourceTree = "<group>"; };
+		318DEF2327F1E3CE00671C0C /* AlertInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 				3182C67227E1359B00B8E719 /* Profile.swift */,
 				31435BC127E6052C00A4B3CA /* Hand.swift */,
 				318DEEF427E9B92D00671C0C /* Player.swift */,
+				318DEF2327F1E3CE00671C0C /* AlertInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				315C131727E86E230024DB2F /* RoundEditor.swift in Sources */,
 				311F59B827E0A83A0001C116 /* ModelData.swift in Sources */,
 				318DEF0927EDD50E00671C0C /* StreakBonusEditor.swift in Sources */,
+				318DEF2427F1E3CE00671C0C /* AlertInfo.swift in Sources */,
 				318DEF0D27EDDA3D00671C0C /* StreakBonusValueEditor.swift in Sources */,
 				318DEEF527E9B92D00671C0C /* Player.swift in Sources */,
 				318DEF0127EDC24700671C0C /* Players.swift in Sources */,

@@ -11,9 +11,10 @@ struct GameHost: View {
     @EnvironmentObject var modelData: ModelData
     @State private var showingProfile = false
     @State private var showingInput = false
-    @State private var roundRepeated = false
-    @State private var showAlert = false
     @State private var editMode:EditMode = .active
+    @State private var info: AlertInfo? = nil
+    @State private var alertType: AlertInfo.AlertType = AlertInfo.AlertType.noAlert
+
     var body: some View {
         VStack {
             HStack {
@@ -41,19 +42,30 @@ struct GameHost: View {
                     }
                     .sheet(isPresented: $showingInput,
                            onDismiss: {
-                        showAlert = roundRepeated
-                        roundRepeated = false
+                        switch alertType {
+                        case AlertInfo.AlertType.roundRepeat: do {
+                            info = AlertInfo.roundRepeat
+                        }
+                        case AlertInfo.AlertType.invalidBids: do {
+                            info = AlertInfo.invalidBids
+                        }
+                        case AlertInfo.AlertType.invalidResults: do {
+                            info = AlertInfo.invalidResults
+                        }
+                        case AlertInfo.AlertType.noAlert: do {
+                            info = nil
+                        }
+                        }
+
                     }) {
-                        InputHost(showingInput: $showingInput, roundRepeated: $roundRepeated)
+                        InputHost(showingInput: $showingInput, alertType: $alertType)
                             .environmentObject(modelData)
                             .environment(\.editMode, $editMode)
                     }
-                    .alert(isPresented: $showAlert) {
-                        Alert(
-                            title: Text("Round Replay"),
-                            message: Text("All players have failed their hand. The round will restart.")
-                        )
-                    }
+                    .alert(item: $info, content: { info in
+                        Alert(title: Text(info.title),
+                              message: Text(info.message))
+                    })
                     .padding()
                 }
                 
