@@ -13,7 +13,8 @@ struct InputHost: View {
     @EnvironmentObject var modelData: ModelData
     @Binding var showingInput: Bool
     @State private var draftRound: Round = Round.default
-    @Binding var roundRepeated: Bool
+    @Binding var alertType: AlertInfo.AlertType
+
 
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
@@ -35,18 +36,21 @@ struct InputHost: View {
                 RoundEditor(round: $draftRound)
                     .onAppear() {
                         draftRound = modelData.rounds[modelData.profile.currentRound]
+                        alertType = AlertInfo.AlertType.noAlert
                     }
                     .onDisappear() {
                         if !modelData.hasBids {
                             if draftRound.validateBids() {
                                 modelData.hasBids = true
                                 modelData.rounds[modelData.profile.currentRound] = draftRound
+                            } else {
+                                alertType = AlertInfo.AlertType.invalidBids
                             }
                         } else {
                             if !modelData.hasResults {
                                 if draftRound.validateResults() {
                                     if (modelData.profile.replayRound && draftRound.replayRound()) {
-                                        roundRepeated = true
+                                        alertType = AlertInfo.AlertType.roundRepeat
                                         modelData.hasBids = false
                                         modelData.hasResults = false
                                         modelData.rounds[modelData.profile.currentRound] = Round(id: draftRound.id, playerCount: modelData.profile.playerCount, hand: draftRound.hand)
@@ -62,6 +66,8 @@ struct InputHost: View {
                                             modelData.gameState = ModelData.GameState.finished
                                         }
                                     }
+                                } else {
+                                    alertType = AlertInfo.AlertType.invalidResults
                                 }
                             }
                         }
@@ -74,7 +80,7 @@ struct InputHost: View {
 
 struct InputHost_Previews: PreviewProvider {
     static var previews: some View {
-        InputHost(showingInput: .constant(true), roundRepeated: .constant(false))
+        InputHost(showingInput: .constant(true), alertType: .constant(AlertInfo.AlertType.roundRepeat))
             .environmentObject(ModelData())
     }
 }
