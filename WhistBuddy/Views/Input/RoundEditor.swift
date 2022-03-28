@@ -17,6 +17,9 @@ struct RoundEditor: View {
             Text("Input \(!modelData.hasBids ? "Bids" : "Results")")
                 .font(.title)
                 .bold()
+            Text(String(round.hand.rawValue))
+                .hidden()
+            Text("First player is: \(modelData.profile.playerNames[modelData.profile.currentRound % modelData.profile.playerCount.rawValue])")
             
             InputListEditor(input: $input, playerNames: modelData.profile.playerNames, round: $round, playerCount: modelData.profile.playerCount, hasBids: modelData.hasBids, hasResults: modelData.hasResults)
         }
