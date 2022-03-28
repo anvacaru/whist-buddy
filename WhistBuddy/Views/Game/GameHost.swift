@@ -38,7 +38,7 @@ struct GameHost: View {
                         showingInput.toggle()
                         editMode = .active
                     } label: {
-                        Label("Input", systemImage: "square.and.pencil")
+                        Label("Input \(modelData.hasBids ? "results" : "bids")", systemImage: "square.and.pencil")
                     }
                     .sheet(isPresented: $showingInput,
                            onDismiss: {

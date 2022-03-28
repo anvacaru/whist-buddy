@@ -10,7 +10,6 @@ import SwiftUI
 struct RoundEditor: View {
     @EnvironmentObject var modelData: ModelData
     @Binding var round: Round
-    @State private var input: [Round.Bid] = Round.default.bids
     
     var body: some View {
         VStack {
@@ -21,9 +20,11 @@ struct RoundEditor: View {
                 .hidden()
             Text("First player is: \(modelData.profile.playerNames[modelData.profile.currentRound % modelData.profile.playerCount.rawValue])")
             
-            InputListEditor(input: $input, playerNames: modelData.profile.playerNames, round: $round, playerCount: modelData.profile.playerCount, hasBids: modelData.hasBids, hasResults: modelData.hasResults)
+            InputListEditor(playerNames: modelData.profile.playerNames, round: $round, playerCount: modelData.profile.playerCount, hasBids: modelData.hasBids)
         }
     }
+    
+
 }
 
 struct RoundEditor_Previews: PreviewProvider {

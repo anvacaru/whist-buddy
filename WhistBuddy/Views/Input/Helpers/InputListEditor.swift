@@ -8,12 +8,11 @@
 import SwiftUI
 
 struct InputListEditor: View {
-    @Binding var input: [Round.Bid]
     var playerNames: [String]
     @Binding var round: Round
     var playerCount: Profile.PlayerCount
     var hasBids: Bool
-    var hasResults: Bool
+    @State private var input: [Round.Bid] = Round.default.bids
 
     var body: some View {
         List {
@@ -23,7 +22,7 @@ struct InputListEditor: View {
                         input = round.bids
                     }
                     .onDisappear() {
-                        if (!hasBids && !hasResults) {
+                        if (!hasBids) {
                             round.bids = input
                         } else {
                             round.results = input
@@ -36,6 +35,6 @@ struct InputListEditor: View {
 
 struct InputListEditor_Previews: PreviewProvider {
     static var previews: some View {
-        InputListEditor(input: .constant(Array(repeating: Round.Bid.one, count: Profile.default.playerCount.rawValue)), playerNames: Profile.defaultNames, round: .constant(Round.default), playerCount: Profile.default.playerCount, hasBids: false, hasResults: false)
+        InputListEditor(playerNames: Profile.defaultNames, round: .constant(Round.default), playerCount: Profile.default.playerCount, hasBids: false)
     }
 }
