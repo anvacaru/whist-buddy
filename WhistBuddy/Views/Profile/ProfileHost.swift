@@ -20,11 +20,13 @@ struct ProfileHost: View {
                     Button("Cancel", role: .cancel) {
                         draftProfile = modelData.profile
                         editMode?.animation().wrappedValue = .inactive
+                        showingProfile = false
                     }
                     Spacer()
-                    EditButton()
+                    Button("Done") {
+                        initGame()
+                    }
                 }
-
             }
 
             if editMode?.wrappedValue == .active {
@@ -32,18 +34,21 @@ struct ProfileHost: View {
                     .onAppear {
                         draftProfile = modelData.profile
                     }
-                    .onDisappear {
-                        modelData.profile = draftProfile
-                        modelData.profile.initGameHands()
-                        modelData.rounds = Round.initGameRounds(playerCount: modelData.profile.playerCount, gameHands: modelData.profile.gameHands)
-                        modelData.players = Player.initPlayers(playerNames: modelData.profile.playerNames, playerCount: modelData.profile.playerCount)
-                        modelData.profile.currentRound = 0
-                        modelData.gameState = ModelData.GameState.inProgress
-                        showingProfile = false
-                    }
             }
         }
         .padding()
+    }
+    
+    func initGame() {
+        modelData.profile = draftProfile
+        modelData.profile.initGameHands()
+        modelData.rounds = Round.initGameRounds(playerCount: modelData.profile.playerCount, gameHands: modelData.profile.gameHands)
+        modelData.players = Player.initPlayers(playerNames: modelData.profile.playerNames, playerCount: modelData.profile.playerCount)
+        modelData.hasBids = false
+        modelData.profile.currentRound = 0
+        modelData.gameState = ModelData.GameState.inProgress
+        editMode?.animation().wrappedValue = .inactive
+        showingProfile = false
     }
 }
 
