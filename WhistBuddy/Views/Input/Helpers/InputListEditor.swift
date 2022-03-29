@@ -8,24 +8,25 @@
 import SwiftUI
 
 struct InputListEditor: View {
-    var playerNames: [String]
+    var players: [Player]
     @Binding var round: Round
-    var playerCount: Profile.PlayerCount
     var hasBids: Bool
+    var currentRound: Int
     @State private var input: [Round.Bid] = Round.default.bids
 
     var body: some View {
         List {
-            ForEach(0..<playerCount.rawValue, id: \.self) { idx in
-                InputEditor(playerName: playerNames[idx], inputBid: $input[idx], hand: round.hand)
+            ForEach(0..<players.count, id: \.self) { id in
+                let index = (id + currentRound) % players.count
+                InputEditor(playerName: players[index].name, inputBid: $input[index], hand: round.hand)
                     .onAppear() {
-                        input = round.bids
+                        input[index] = round.bids[index]
                     }
                     .onDisappear() {
                         if (!hasBids) {
-                            round.bids = input
+                            round.bids[index] = input[index]
                         } else {
-                            round.results = input
+                            round.results[index] = input[index]
                         }
                     }
             }
@@ -35,6 +36,6 @@ struct InputListEditor: View {
 
 struct InputListEditor_Previews: PreviewProvider {
     static var previews: some View {
-        InputListEditor(playerNames: Profile.defaultNames, round: .constant(Round.default), playerCount: Profile.default.playerCount, hasBids: false)
+        InputListEditor(players: Player.initPlayers(playerNames: Profile.defaultNames, playerCount: Profile.PlayerCount.six), round: .constant(Round.default), hasBids: false, currentRound: 1)
     }
 }
