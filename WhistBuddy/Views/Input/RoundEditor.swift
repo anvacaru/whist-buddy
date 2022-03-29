@@ -18,13 +18,9 @@ struct RoundEditor: View {
                 .bold()
             Text(String(round.hand.rawValue))
                 .hidden()
-            Text("First player is: \(modelData.profile.playerNames[modelData.profile.currentRound % modelData.profile.playerCount.rawValue])")
-            
-            InputListEditor(playerNames: modelData.profile.playerNames, round: $round, playerCount: modelData.profile.playerCount, hasBids: modelData.hasBids)
+            InputListEditor(players: modelData.players, round: $round, hasBids: modelData.hasBids, currentRound: modelData.profile.currentRound)
         }
     }
-    
-
 }
 
 struct RoundEditor_Previews: PreviewProvider {
