@@ -14,6 +14,7 @@ struct InputListEditor: View {
     var currentRound: Int
     @State private var input: [Round.Bid] = Round.default.bids
     @State private var sum : Int = 0
+    @State private var auxInput: Round.Bid = Round.Bid.zero
 
     var body: some View {
         List {
@@ -31,30 +32,23 @@ struct InputListEditor: View {
                         }
                     }
             }
-            .onChange(of: input) { val in
-                sum = sumOfBids()
+            .onChange(of: input) { newInput in
+                sum = newInput.reduce(0) {$0 + $1.rawValue}
             }
 
             let index = (players.count - 1 + currentRound) % players.count
-            InputEditor(playerName: players[index].name, inputBid: $input[index], hand: round.hand, isConstrained: !hasBids, sum: sum)
+            ConstrainedInputEditor(playerName: players[index].name, inputBid: $auxInput, hand: round.hand, isConstrained: !hasBids, sum: sum)
                 .onAppear() {
-                    input[index] = round.bids[index]
-                }
-                .onChange(of: input) { val in
-                    sum = sumOfBids()
+                    auxInput = round.bids[index]
                 }
                 .onDisappear() {
-                    if (!hasBids) {
-                        round.bids[index] = input[index]
+                    if !hasBids {
+                        round.bids[index] = auxInput
                     } else {
-                        round.results[index] = input[index]
+                        round.results[index] = auxInput
                     }
                 }
         }
-    }
-    
-    func sumOfBids() -> Int {
-        return (input.reduce(0) {$0 + $1.rawValue})
     }
 }
 
