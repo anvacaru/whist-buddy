@@ -11,9 +11,9 @@ struct InputEditor: View {
     var playerName:String
     @Binding var inputBid: Round.Bid
     var hand: Hand
+
     var body: some View {
         VStack{
- 
             Text(playerName)
             Picker("Players", selection: $inputBid) {
                 ForEach(Round.Bid.allCases.filter{ $0.rawValue <= hand.rawValue }) { count in
@@ -28,6 +28,6 @@ struct InputEditor: View {
 
 struct InputEditor_Previews: PreviewProvider {
     static var previews: some View {
-        InputEditor(playerName: "Andrei", inputBid: .constant(Round.Bid.zero), hand: Hand.eight)
+        InputEditor(playerName: "Andrei", inputBid: .constant(Round.Bid.zero), hand: Hand.one)
     }
 }
