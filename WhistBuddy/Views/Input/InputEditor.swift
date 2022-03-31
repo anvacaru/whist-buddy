@@ -17,7 +17,7 @@ struct InputEditor: View {
             Text(playerName)
             Picker("Players", selection: $inputBid) {
                 ForEach(Round.Bid.allCases.filter{ $0.rawValue <= hand.rawValue}) { count in
-                        Text(String(count.rawValue)).tag(count)
+                    Text(String(count.rawValue)).tag(count)
                 }
             }
             .pickerStyle(.segmented)
