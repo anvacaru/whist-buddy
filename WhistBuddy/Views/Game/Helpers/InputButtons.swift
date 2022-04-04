@@ -37,7 +37,6 @@ struct InputButtons: View {
                 info = nil
             }
             }
-
         }) {
             InputHost(showingInput: $showingInput, alertType: $alertType)
                 .environmentObject(modelData)
@@ -58,14 +57,22 @@ struct InputButtons: View {
             } label: {
                 Label("Bid replace", systemImage: "square.and.pencil")
             }
-            .sheet(isPresented: $showingInput) {
-                InputHost(showingInput: $showingInput, alertType: $alertType)
-                    .environmentObject(modelData)
-                    .environment(\.editMode, $editMode)
-            }
-            .alert(item: $info, content: { info in
-                Alert(title: Text(info.title),
-                      message: Text(info.message))
+            .sheet(isPresented: $showingInput,
+                   onDismiss: {
+                switch alertType {
+                case AlertInfo.AlertType.roundRepeat: do {
+                    info = AlertInfo.roundRepeat
+                }
+                case AlertInfo.AlertType.invalidBids: do {
+                    info = AlertInfo.invalidBids
+                }
+                case AlertInfo.AlertType.invalidResults: do {
+                    info = AlertInfo.invalidResults
+                }
+                case AlertInfo.AlertType.noAlert: do {
+                    info = nil
+                }
+                }
             })
             .padding()
         }
