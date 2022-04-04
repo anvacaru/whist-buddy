@@ -16,7 +16,7 @@ struct StreakBonusEditor: View {
                 Text("Enable Streak Bonus")
                     .font(.title3)
                     .bold()
-                Text("When a player gets a \(playerCount.rawValue + 1) streak win, he will get awarded. Same goes for losing.")
+                Text("When a player gets a \(playerCount.rawValue + 1) streak win, he will get awarded. Same goes for losing. Games of 1 are not taken into consideration.")
                     .font(.caption)
                     .foregroundColor(.gray)
             }
