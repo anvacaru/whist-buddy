@@ -17,7 +17,7 @@ struct ProfileEditor: View {
                 .bold()
             List {
                 GameModeEditor(gameMode: $profile.gameMode)
-                StreakBonusEditor(prefersBonus: $profile.prefersBonus)
+                StreakBonusEditor(prefersBonus: $profile.prefersBonus, playerCount: profile.playerCount)
                 if(profile.prefersBonus) {
                     StreakBonusValueEditor(bonusValue: $profile.bonusValue)
                 }

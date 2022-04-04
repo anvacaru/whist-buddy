@@ -25,7 +25,7 @@ struct Player: Identifiable {
         return players
     }
     
-    mutating func updateScore(roundPoints: Int, countStreak: Bool, bonusValue: Int, roundId: Int) {
+    mutating func updateScore(roundPoints: Int, countStreak: Bool, bonusValue: Int, roundId: Int, playerCount: Profile.PlayerCount) {
         score += roundPoints
         if countStreak {
             if roundPoints > 0 {
@@ -34,7 +34,7 @@ struct Player: Identifiable {
                 streak = streak <= 0 ? streak - 1 : -1
             }
         }
-        if streak % 5 == 0 && streak != 0 {
+        if streak % (playerCount.rawValue + 1) == 0 && streak != 0 {
             let value = streak > 0 ? bonusValue : (-1) * bonusValue
             score += value
             streak = 0
