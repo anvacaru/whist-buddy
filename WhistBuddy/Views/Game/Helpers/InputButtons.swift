@@ -19,7 +19,7 @@ struct InputButtons: View {
             showingInput.toggle()
             editMode = .active
         } label: {
-            Label("Input \(modelData.hasBids ? "results" : "bids")", systemImage: "square.and.pencil")
+            Label("Input \(modelData.hasBids ? "Results" : "Bids")", systemImage: "square.and.pencil")
         }
         .sheet(isPresented: $showingInput,
                onDismiss: {
@@ -55,7 +55,7 @@ struct InputButtons: View {
                 showingInput.toggle()
                 editMode = .active
             } label: {
-                Label("Bid replace", systemImage: "square.and.pencil")
+                Label("Change Bids", systemImage: "square.and.pencil")
             }
             .sheet(isPresented: $showingInput,
                    onDismiss: {
@@ -73,7 +73,11 @@ struct InputButtons: View {
                     info = nil
                 }
                 }
-            })
+            }) {
+                InputHost(showingInput: $showingInput, alertType: $alertType)
+                    .environmentObject(modelData)
+                    .environment(\.editMode, $editMode)
+            }
             .padding()
         }
     }
