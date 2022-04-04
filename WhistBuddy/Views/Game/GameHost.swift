@@ -34,52 +34,21 @@ struct GameHost: View {
                 if modelData.gameState == ModelData.GameState.inProgress && modelData.profile.currentRound < modelData.profile.gameHands.count {
                     Spacer()
                     
-                    Button {
-                        showingInput.toggle()
-                        editMode = .active
-                    } label: {
-                        Label("Input \(modelData.hasBids ? "results" : "bids")", systemImage: "square.and.pencil")
+                    InputButtons()
+                        .environmentObject(modelData)
+                    
+                    if modelData.gameState == ModelData.GameState.finished {
+                        Spacer()
+                        Button {
+                            modelData.gameState = ModelData.GameState.inProgress
+                        } label: {
+                            Label("Scoreboard", systemImage: "tablecells.fill")
+                        }
+                        .padding()
                     }
-                    .sheet(isPresented: $showingInput,
-                           onDismiss: {
-                        switch alertType {
-                        case AlertInfo.AlertType.roundRepeat: do {
-                            info = AlertInfo.roundRepeat
-                        }
-                        case AlertInfo.AlertType.invalidBids: do {
-                            info = AlertInfo.invalidBids
-                        }
-                        case AlertInfo.AlertType.invalidResults: do {
-                            info = AlertInfo.invalidResults
-                        }
-                        case AlertInfo.AlertType.noAlert: do {
-                            info = nil
-                        }
-                        }
-
-                    }) {
-                        InputHost(showingInput: $showingInput, alertType: $alertType)
-                            .environmentObject(modelData)
-                            .environment(\.editMode, $editMode)
-                    }
-                    .alert(item: $info, content: { info in
-                        Alert(title: Text(info.title),
-                              message: Text(info.message))
-                    })
-                    .padding()
-                }
-                
-                if modelData.gameState == ModelData.GameState.finished {
-                    Spacer()
-                    Button {
-                        modelData.gameState = ModelData.GameState.inProgress
-                    } label: {
-                        Label("Scoreboard", systemImage: "tablecells.fill")
-                    }
-                    .padding()
                 }
             }
-            
+                    
             if modelData.gameState == ModelData.GameState.inProgress {
                 ScrollView{
                     GameSummary()
