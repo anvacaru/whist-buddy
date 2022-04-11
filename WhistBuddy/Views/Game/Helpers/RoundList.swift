@@ -17,7 +17,9 @@ struct RoundList: View {
     var body: some View {
         VStack {
             Text(String(round.hand.rawValue))
-                .frame(width:58, height: 58)
+                .font(.caption)
+                .foregroundColor(.secondary)
+                .frame(width:58, height: 40)
             Divider()
             ForEach(players) { player in
                 RoundEntry(round: round, playerIndex: player.id, currentRound: currentRound, displayBid: displayBid, displayScore: displayScore, awarded: player.awardedIn.contains(round.id), deprived: player.deprivedIn.contains(round.id))

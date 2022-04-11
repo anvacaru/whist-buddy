@@ -12,7 +12,9 @@ struct PlayerList: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text("Hand")
-                .frame(height: 58)
+                .font(.caption)
+                .foregroundColor(.secondary)
+                .frame(height: 40)
             Divider()
             ForEach(players) { player in
                 Text(player.name)

@@ -13,7 +13,7 @@ struct RoundEditorWrapper: View {
     @Binding var draftRound: Round
     @Binding var applyChanges: Bool
     @Binding var alertType: AlertInfo.AlertType
-    @Binding var showingInput: Bool
+    @Binding var activeSheet: ActiveSheet?
     
     var body: some View {
         
@@ -29,7 +29,7 @@ struct RoundEditorWrapper: View {
                         assignResults()
                     }
                 }
-                showingInput = false
+                activeSheet = nil
             }
     }
     
@@ -70,6 +70,6 @@ struct RoundEditorWrapper: View {
 
 struct RoundEditorWrapper_Previews: PreviewProvider {
     static var previews: some View {
-        RoundEditorWrapper(draftRound: .constant(Round.default), applyChanges: .constant(true), alertType: .constant(AlertInfo.AlertType.noAlert), showingInput: .constant(false))
+        RoundEditorWrapper(draftRound: .constant(Round.default), applyChanges: .constant(true), alertType: .constant(AlertInfo.AlertType.noAlert), activeSheet: .constant(nil))
     }
 }

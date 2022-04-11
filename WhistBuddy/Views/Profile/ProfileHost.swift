@@ -10,7 +10,7 @@ import SwiftUI
 struct ProfileHost: View {
     @Environment(\.editMode) var editMode
     @EnvironmentObject var modelData: ModelData
-    @Binding var showingProfile: Bool
+    @Binding var activeSheet: ActiveSheet?
     @State private var draftProfile = Profile.default
 
     var body: some View {
@@ -20,7 +20,7 @@ struct ProfileHost: View {
                     Button("Cancel", role: .cancel) {
                         draftProfile = modelData.profile
                         editMode?.animation().wrappedValue = .inactive
-                        showingProfile = false
+                        activeSheet = nil
                     }
                     Spacer()
                     Button("Done") {
@@ -43,18 +43,21 @@ struct ProfileHost: View {
         modelData.profile = draftProfile
         modelData.profile.initGameHands()
         modelData.rounds = Round.initGameRounds(playerCount: modelData.profile.playerCount, gameHands: modelData.profile.gameHands)
+        for index in 0 ..< modelData.profile.playerCount.rawValue {
+            modelData.profile.playerNames[index] = modelData.profile.playerNames[index].isEmpty ? Profile.defaultNames[index] : modelData.profile.playerNames[index]
+        }
         modelData.players = Player.initPlayers(playerNames: modelData.profile.playerNames, playerCount: modelData.profile.playerCount)
         modelData.hasBids = false
         modelData.profile.currentRound = 0
         modelData.gameState = ModelData.GameState.inProgress
         editMode?.animation().wrappedValue = .inactive
-        showingProfile = false
+        activeSheet = nil
     }
 }
 
 struct ProfileHost_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileHost(showingProfile: .constant(true))
+        ProfileHost(activeSheet: .constant(ActiveSheet.first))
             .environmentObject(ModelData())
     }
 }
