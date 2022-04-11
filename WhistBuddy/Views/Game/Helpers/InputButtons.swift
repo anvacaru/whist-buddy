@@ -86,5 +86,6 @@ struct InputButtons: View {
 struct InputButtons_Previews: PreviewProvider {
     static var previews: some View {
         InputButtons()
+            .environmentObject(ModelData())
     }
 }
