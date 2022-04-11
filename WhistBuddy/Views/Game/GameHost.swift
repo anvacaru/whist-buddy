@@ -10,10 +10,7 @@ import SwiftUI
 struct GameHost: View {
     @EnvironmentObject var modelData: ModelData
     @State private var showingProfile = false
-    @State private var showingInput = false
     @State private var editMode:EditMode = .active
-    @State private var info: AlertInfo? = nil
-    @State private var alertType: AlertInfo.AlertType = AlertInfo.AlertType.noAlert
 
     var body: some View {
         VStack {
@@ -37,6 +34,8 @@ struct GameHost: View {
                     InputButtons()
                         .environmentObject(modelData)
                     
+
+                } else {
                     if modelData.gameState == ModelData.GameState.finished {
                         Spacer()
                         Button {
