@@ -10,7 +10,7 @@ import SwiftUI
 struct ProfileHost: View {
     @Environment(\.editMode) var editMode
     @EnvironmentObject var modelData: ModelData
-    @Binding var showingProfile: Bool
+    @Binding var activeSheet: ActiveSheet?
     @State private var draftProfile = Profile.default
 
     var body: some View {
@@ -20,7 +20,7 @@ struct ProfileHost: View {
                     Button("Cancel", role: .cancel) {
                         draftProfile = modelData.profile
                         editMode?.animation().wrappedValue = .inactive
-                        showingProfile = false
+                        activeSheet = nil
                     }
                     Spacer()
                     Button("Done") {
@@ -48,13 +48,13 @@ struct ProfileHost: View {
         modelData.profile.currentRound = 0
         modelData.gameState = ModelData.GameState.inProgress
         editMode?.animation().wrappedValue = .inactive
-        showingProfile = false
+        activeSheet = nil
     }
 }
 
 struct ProfileHost_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileHost(showingProfile: .constant(true))
+        ProfileHost(activeSheet: .constant(ActiveSheet.first))
             .environmentObject(ModelData())
     }
 }

@@ -11,7 +11,7 @@ struct InputHost: View {
     
     @Environment(\.editMode) var editMode
     @EnvironmentObject var modelData: ModelData
-    @Binding var showingInput: Bool
+    @Binding var activeSheet: ActiveSheet?
     @Binding var alertType: AlertInfo.AlertType
     @State private var applyChanges: Bool = false
     @State private var draftRound: Round = Round.default
@@ -23,7 +23,7 @@ struct InputHost: View {
                     Button("Cancel", role: .cancel) {
                         draftRound = modelData.rounds[modelData.profile.currentRound]
                         editMode?.animation().wrappedValue = .inactive
-                        showingInput = false
+                        activeSheet = nil
                         applyChanges = false
                     }
                     .tag("Cancel")
@@ -42,7 +42,7 @@ struct InputHost: View {
             .padding()
             
             if editMode?.wrappedValue == .active {
-                RoundEditorWrapper(draftRound: $draftRound, applyChanges: $applyChanges, alertType: $alertType, showingInput: $showingInput)
+                RoundEditorWrapper(draftRound: $draftRound, applyChanges: $applyChanges, alertType: $alertType, activeSheet: $activeSheet)
                     .environmentObject(modelData)
             }
         }
@@ -51,7 +51,7 @@ struct InputHost: View {
 
 struct InputHost_Previews: PreviewProvider {
     static var previews: some View {
-        InputHost(showingInput: .constant(true), alertType: .constant(AlertInfo.AlertType.roundRepeat))
+        InputHost(activeSheet: .constant(ActiveSheet.second), alertType: .constant(AlertInfo.AlertType.roundRepeat))
             .environmentObject(ModelData())
     }
 }
