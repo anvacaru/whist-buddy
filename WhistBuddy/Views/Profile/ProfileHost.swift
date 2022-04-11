@@ -43,6 +43,9 @@ struct ProfileHost: View {
         modelData.profile = draftProfile
         modelData.profile.initGameHands()
         modelData.rounds = Round.initGameRounds(playerCount: modelData.profile.playerCount, gameHands: modelData.profile.gameHands)
+        for index in 0 ..< modelData.profile.playerCount.rawValue {
+            modelData.profile.playerNames[index] = modelData.profile.playerNames[index].isEmpty ? Profile.defaultNames[index] : modelData.profile.playerNames[index]
+        }
         modelData.players = Player.initPlayers(playerNames: modelData.profile.playerNames, playerCount: modelData.profile.playerCount)
         modelData.hasBids = false
         modelData.profile.currentRound = 0

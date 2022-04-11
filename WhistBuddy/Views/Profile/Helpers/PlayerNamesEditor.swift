@@ -10,11 +10,12 @@ import SwiftUI
 struct PlayerNamesEditor: View {
     var playerCount: Profile.PlayerCount
     @Binding var playerNames: [String]
+
     var body: some View {
             ForEach(0..<playerCount.rawValue, id:\.self) { index in
                 TextField("Player Name", text: $playerNames[index])
                     .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-                    .border(playerNames[index].isEmpty ? Color.red : Color.clear)
+                    .contentShape(Rectangle())
                     .onDisappear {
                         playerNames[index] = playerNames[index].isEmpty ? Profile.defaultNames[index] : playerNames[index]
                     }
@@ -24,6 +25,7 @@ struct PlayerNamesEditor: View {
                     .onTapGesture {
                         playerNames[index] = ""
                     }
+                    .border(playerNames[index].isEmpty ? Color.red : Color.clear)
             }
     }
 }
