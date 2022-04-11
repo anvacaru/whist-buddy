@@ -85,10 +85,10 @@
 		318DEF1E27EE531300671C0C /* InputListEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputListEditor.swift; sourceTree = "<group>"; };
 		318DEF2127EE58BB00671C0C /* RoundText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundText.swift; sourceTree = "<group>"; };
 		318DEF2327F1E3CE00671C0C /* AlertInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertInfo.swift; sourceTree = "<group>"; };
-		31B1F59A2804AA6F002E0C77 /* GameHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameHeader.swift; path = Helpers/GameHeader.swift; sourceTree = "<group>"; };
-		31B1F59B2804AA6F002E0C77 /* MenuList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuList.swift; path = Helpers/MenuList.swift; sourceTree = "<group>"; };
-		31B1F59E2804AA93002E0C77 /* InputButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InputButton.swift; path = WhistBuddy/Views/Input/Helpers/InputButton.swift; sourceTree = SOURCE_ROOT; };
-		31B1F5A02804AA9D002E0C77 /* NewGameButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewGameButton.swift; path = WhistBuddy/Views/Profile/Helpers/NewGameButton.swift; sourceTree = SOURCE_ROOT; };
+		31B1F59A2804AA6F002E0C77 /* GameHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameHeader.swift; sourceTree = "<group>"; };
+		31B1F59B2804AA6F002E0C77 /* MenuList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuList.swift; sourceTree = "<group>"; };
+		31B1F59E2804AA93002E0C77 /* InputButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InputButton.swift; path = WhistBuddy/Views/Game/Helpers/InputButton.swift; sourceTree = SOURCE_ROOT; };
+		31B1F5A02804AA9D002E0C77 /* NewGameButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewGameButton.swift; path = WhistBuddy/Views/Game/Helpers/NewGameButton.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,16 +196,9 @@
 			isa = PBXGroup;
 			children = (
 				318DEF2027EE58A500671C0C /* Helpers */,
-				3182C67C27E15FB400B8E719 /* RoundEntry.swift */,
 				3182C67E27E161AF00B8E719 /* GameSummary.swift */,
 				3182C68227E23EE300B8E719 /* GameHost.swift */,
-				31B1F59A2804AA6F002E0C77 /* GameHeader.swift */,
-				31B1F59B2804AA6F002E0C77 /* MenuList.swift */,
-				31B1F5A02804AA9D002E0C77 /* NewGameButton.swift */,
-				31B1F59E2804AA93002E0C77 /* InputButton.swift */,
 				318DEEF627E9F17800671C0C /* GameStandings.swift */,
-				318DEF1927EE3EB100671C0C /* RoundList.swift */,
-				318DEF1B27EE413200671C0C /* PlayerList.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -239,7 +232,14 @@
 		318DEF2027EE58A500671C0C /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				31B1F59B2804AA6F002E0C77 /* MenuList.swift */,
 				318DEF2127EE58BB00671C0C /* RoundText.swift */,
+				3182C67C27E15FB400B8E719 /* RoundEntry.swift */,
+				31B1F5A02804AA9D002E0C77 /* NewGameButton.swift */,
+				318DEF1927EE3EB100671C0C /* RoundList.swift */,
+				318DEF1B27EE413200671C0C /* PlayerList.swift */,
+				31B1F59E2804AA93002E0C77 /* InputButton.swift */,
+				31B1F59A2804AA6F002E0C77 /* GameHeader.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";

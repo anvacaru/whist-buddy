@@ -7,6 +7,12 @@
 
 import SwiftUI
 
+enum ActiveSheet: Identifiable {
+    case first, second
+    
+    var id: Int { hashValue }
+}
+
 struct MenuList: View {
     @EnvironmentObject var modelData: ModelData
     @Binding var editMode:EditMode
@@ -20,12 +26,9 @@ struct MenuList: View {
                     Label("Change Bid", systemImage: "doc")
                 }
             }
-
+            
             NewGameButton(activeSheet: $activeSheet, editMode: $editMode)
 
-            Button(action: {}) {
-                Label("About", systemImage: "folder")
-            }
         }
         label: {
             Label("More", systemImage: "ellipsis")

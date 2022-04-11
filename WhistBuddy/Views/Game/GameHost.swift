@@ -7,14 +7,6 @@
 
 import SwiftUI
 
-enum ActiveSheet: Identifiable {
-    case first, second
-    
-    var id: Int {
-        hashValue
-    }
-}
-
 struct GameHost: View {
     @EnvironmentObject var modelData: ModelData
     
