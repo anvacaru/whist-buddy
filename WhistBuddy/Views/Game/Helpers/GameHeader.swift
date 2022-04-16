@@ -26,6 +26,8 @@ struct GameHeader: View {
                     Spacer()
                     
                     MenuList(editMode: $editMode, alertType: $alertType, activeSheet: $activeSheet)
+                } else {
+                    NewGameButton(activeSheet: $activeSheet, editMode: $editMode)
                 }
             case ModelData.GameState.finished: do {
                 NewGameButton(activeSheet: $activeSheet, editMode: $editMode)
