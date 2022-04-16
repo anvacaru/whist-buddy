@@ -15,7 +15,7 @@ struct InputButton: View {
 
     var body: some View {
         Button {
-            activeSheet = ActiveSheet.second
+            activeSheet = ActiveSheet.input
             editMode = .active
         } label: {
             Label("Input \(hasBids ? "Results" : "Bids")", systemImage: "square.and.pencil")

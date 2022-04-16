@@ -46,6 +46,8 @@
 		31B1F59D2804AA6F002E0C77 /* MenuList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B1F59B2804AA6F002E0C77 /* MenuList.swift */; };
 		31B1F59F2804AA93002E0C77 /* InputButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B1F59E2804AA93002E0C77 /* InputButton.swift */; };
 		31B1F5A12804AA9D002E0C77 /* NewGameButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B1F5A02804AA9D002E0C77 /* NewGameButton.swift */; };
+		31EFAEBE280AD0DC00EC2D45 /* AboutHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EFAEBD280AD0DC00EC2D45 /* AboutHost.swift */; };
+		31EFAEC0280AD85700EC2D45 /* AboutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EFAEBF280AD85700EC2D45 /* AboutButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +91,8 @@
 		31B1F59B2804AA6F002E0C77 /* MenuList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuList.swift; sourceTree = "<group>"; };
 		31B1F59E2804AA93002E0C77 /* InputButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InputButton.swift; path = WhistBuddy/Views/Game/Helpers/InputButton.swift; sourceTree = SOURCE_ROOT; };
 		31B1F5A02804AA9D002E0C77 /* NewGameButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewGameButton.swift; path = WhistBuddy/Views/Game/Helpers/NewGameButton.swift; sourceTree = SOURCE_ROOT; };
+		31EFAEBD280AD0DC00EC2D45 /* AboutHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutHost.swift; sourceTree = "<group>"; };
+		31EFAEBF280AD85700EC2D45 /* AboutButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +159,7 @@
 		311F59AE27E09FC90001C116 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				31EFAEBC280AD0C400EC2D45 /* About */,
 				31435BBE27E603D300A4B3CA /* Input */,
 				3182C67927E15DD600B8E719 /* Game */,
 				3182C66E27E134E600B8E719 /* Profile */,
@@ -242,6 +247,15 @@
 				31B1F59A2804AA6F002E0C77 /* GameHeader.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		31EFAEBC280AD0C400EC2D45 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				31EFAEBD280AD0DC00EC2D45 /* AboutHost.swift */,
+				31EFAEBF280AD85700EC2D45 /* AboutButton.swift */,
+			);
+			path = About;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -341,8 +355,10 @@
 				3182C67327E1359B00B8E719 /* Profile.swift in Sources */,
 				315C131727E86E230024DB2F /* RoundEditor.swift in Sources */,
 				311F59B827E0A83A0001C116 /* ModelData.swift in Sources */,
+				31EFAEBE280AD0DC00EC2D45 /* AboutHost.swift in Sources */,
 				318DEF0927EDD50E00671C0C /* StreakBonusEditor.swift in Sources */,
 				318DEF2427F1E3CE00671C0C /* AlertInfo.swift in Sources */,
+				31EFAEC0280AD85700EC2D45 /* AboutButton.swift in Sources */,
 				318DEF0D27EDDA3D00671C0C /* StreakBonusValueEditor.swift in Sources */,
 				318DEEF527E9B92D00671C0C /* Player.swift in Sources */,
 				31B1F59C2804AA6F002E0C77 /* GameHeader.swift in Sources */,

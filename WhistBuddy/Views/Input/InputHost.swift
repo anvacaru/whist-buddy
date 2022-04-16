@@ -51,7 +51,7 @@ struct InputHost: View {
 
 struct InputHost_Previews: PreviewProvider {
     static var previews: some View {
-        InputHost(activeSheet: .constant(ActiveSheet.second), alertType: .constant(AlertInfo.AlertType.roundRepeat))
+        InputHost(activeSheet: .constant(ActiveSheet.input), alertType: .constant(AlertInfo.AlertType.roundRepeat))
             .environmentObject(ModelData())
     }
 }

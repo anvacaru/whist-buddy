@@ -13,7 +13,7 @@ struct NewGameButton: View {
 
     var body: some View {
         Button {
-            activeSheet = ActiveSheet.first
+            activeSheet = ActiveSheet.profile
             editMode = .active
         } label: {
             Label("New Game", systemImage: "person.3.fill")

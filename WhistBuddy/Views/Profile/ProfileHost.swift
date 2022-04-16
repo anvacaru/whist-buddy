@@ -57,7 +57,7 @@ struct ProfileHost: View {
 
 struct ProfileHost_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileHost(activeSheet: .constant(ActiveSheet.first))
+        ProfileHost(activeSheet: .constant(ActiveSheet.profile))
             .environmentObject(ModelData())
     }
 }

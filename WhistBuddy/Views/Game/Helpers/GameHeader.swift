@@ -18,7 +18,10 @@ struct GameHeader: View {
         HStack {
             switch modelData.gameState {
             case ModelData.GameState.notInitialized:
-                NewGameButton(activeSheet: $activeSheet, editMode: $editMode)
+                VStack(alignment: .trailing){
+                    NewGameButton(activeSheet: $activeSheet, editMode: $editMode)
+                    AboutButton(activeSheet: $activeSheet)
+                }
             case ModelData.GameState.inProgress:
                 if modelData.profile.currentRound < modelData.profile.gameHands.count {
                     InputButton(editMode: $editMode, alertType: $alertType, activeSheet: $activeSheet, hasBids: modelData.hasBids)
@@ -58,14 +61,16 @@ struct GameHeader: View {
             }
         }) { item in
             switch item {
-            case .first:
+            case .profile:
                 ProfileHost(activeSheet: $activeSheet)
                     .environmentObject(modelData)
                     .environment(\.editMode, $editMode)
-            case .second:
+            case .input:
                 InputHost(activeSheet: $activeSheet, alertType: $alertType)
                     .environmentObject(modelData)
                     .environment(\.editMode, $editMode)
+            case .about:
+                AboutHost(activeSheet: $activeSheet)
             }
         }
 

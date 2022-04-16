@@ -8,7 +8,7 @@
 import SwiftUI
 
 enum ActiveSheet: Identifiable {
-    case first, second
+    case profile, input, about
     
     var id: Int { hashValue }
 }
@@ -28,6 +28,8 @@ struct MenuList: View {
             }
             
             NewGameButton(activeSheet: $activeSheet, editMode: $editMode)
+            
+            AboutButton(activeSheet: $activeSheet)
 
         }
         label: {
@@ -37,7 +39,7 @@ struct MenuList: View {
     
     func displayChangeBidButton() {
         modelData.hasBids = false
-        activeSheet = ActiveSheet.second
+        activeSheet = ActiveSheet.input
         editMode = .active
     }
 }
