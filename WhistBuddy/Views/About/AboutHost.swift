@@ -10,28 +10,42 @@ import SwiftUI
 struct AboutHost: View {
     @Binding var activeSheet: ActiveSheet?
     var body: some View {
-        VStack {
+        VStack(alignment:.leading) {
             HStack {
                 Spacer()
                 Button("Done") {
                     activeSheet = nil
                 }
             }
-            Text("Whist Buddy")
-                .font(.title2)
-                .bold()
-            Text("How to play")
-                .font(.callout)
-                .padding(.bottom)
+            HStack {
+                Spacer()
+                Text("Whist Buddy")
+                    .font(.title2)
+                    .bold()
+                Spacer()
+            }
+            HStack {
+                Spacer()
+                Text("How to play")
+                    .font(.callout)
+                    .padding(.bottom)
             
+                Spacer()
+            }
+
             VStack(alignment: .leading) {
                 Text("The scoreboard is made out of rows and columns.")
                 Text("Each column represents a round and each row represents a player score.")
                 Text("Each column will have an entry for each player, like the one below.")
             }
             .font(.body)
-            RoundEntry(round: Round.default, playerIndex: 1, currentRound: 1, displayBid: true, displayScore: true)
             
+            HStack {
+                Spacer()
+                RoundEntry(round: Round.default, playerIndex: 1, currentRound: 1, displayBid: true, displayScore: true)
+                Spacer()
+            }
+
             VStack(alignment:.leading) {
                 Text("An entry is made out of three numbers:")
                 VStack(alignment:.leading) {
