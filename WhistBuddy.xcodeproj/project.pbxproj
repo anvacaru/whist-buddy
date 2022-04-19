@@ -51,7 +51,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		311F599627E098340001C116 /* WhistBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhistBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		311F599627E098340001C116 /* Whist Buddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Whist Buddy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		311F599927E098340001C116 /* WhistBuddyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhistBuddyApp.swift; sourceTree = "<group>"; };
 		311F599D27E098360001C116 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		311F59A027E098360001C116 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -117,7 +117,7 @@
 		311F599727E098340001C116 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				311F599627E098340001C116 /* WhistBuddy.app */,
+				311F599627E098340001C116 /* Whist Buddy.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -275,7 +275,7 @@
 			);
 			name = WhistBuddy;
 			productName = WhistBuddy;
-			productReference = 311F599627E098340001C116 /* WhistBuddy.app */;
+			productReference = 311F599627E098340001C116 /* Whist Buddy.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -512,7 +512,7 @@
 				);
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = anvacaru.WhistBuddy;
-				PRODUCT_NAME = WhistBuddy;
+				PRODUCT_NAME = "Whist Buddy";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -543,7 +543,7 @@
 				);
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = anvacaru.WhistBuddy;
-				PRODUCT_NAME = WhistBuddy;
+				PRODUCT_NAME = "Whist Buddy";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
